@@ -1,0 +1,6 @@
+development.dropxl.com
+www.dropxl.com
+staging.dropxl.com
+b2b.dropxl.com
+sandbox.b2b.dropxl.com
+autodiscover.dropxl.com

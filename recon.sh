@@ -5,6 +5,29 @@ DOMAIN=$1
 WORDLIST="subdomains-top1million-110000.txt"
 RESOLVERS="resolvers.txt"
 
+# --- HELPER: Spinner for API tasks ---
+spinner() {
+    local pid=$1
+    local delay=0.1
+    local spinstr='|/-\'
+    while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
+        local temp=${spinstr#?}
+        printf " [%c]  " "$spinstr"
+        local spinstr=$temp${spinstr%"$temp"}
+        sleep $delay
+        printf "\b\b\b\b\b\b"
+    done
+    printf "    \b\b\b\b"
+}
+
+# --- HELPER: Check for PV (Progress Bar Tool) ---
+if ! command -v pv &> /dev/null; then
+    echo "[!] 'pv' is not installed. Installing it for progress bars..."
+    if [ -x "$(command -v apt)" ]; then sudo apt update && sudo apt install -y pv
+    elif [ -x "$(command -v brew)" ]; then brew install pv
+    else echo "Please install 'pv' manually to see progress bars."; exit 1; fi
+fi
+
 # 1. Validation
 if [ -z "$DOMAIN" ]; then
     echo "Usage: ./recon.sh <domain>"
@@ -12,7 +35,6 @@ if [ -z "$DOMAIN" ]; then
 fi
 
 # 2. Create Output Directory
-# This creates a folder named "example.com" (or whatever domain you typed)
 if [ ! -d "$DOMAIN" ]; then
     echo "[+] Creating output directory: $DOMAIN/"
     mkdir -p "$DOMAIN"
@@ -37,7 +59,7 @@ if ! command -v go >/dev/null; then
     fi
 fi
 
-# 4. Check/Install MassDNS (Critical for PureDNS)
+# 4. Check/Install MassDNS
 if ! command -v massdns &> /dev/null; then
     echo "[+] MassDNS not found. Installing..."
     if [ -d "massdns" ]; then rm -rf massdns; fi
@@ -72,7 +94,7 @@ done
 # Ensure Path is set for this session
 export PATH=$PATH:$(go env GOPATH)/bin
 
-# 6. Check/Download Wordlist & Resolvers (Keep these in root folder to share)
+# 6. Check/Download Wordlist & Resolvers
 if [ ! -f "$WORDLIST" ]; then
     echo "[+] Downloading wordlist..."
     wget -q "https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/DNS/subdomains-top1million-110000.txt" -O "$WORDLIST"
@@ -88,28 +110,32 @@ echo " RUNNING RECON ON: $DOMAIN"
 echo "=========================================="
 
 # --- Phase 1: Passive Recon ---
-echo "[+] 1. Starting Passive Discovery..."
-# Saved to $DOMAIN/passive.txt
-subfinder -d "$DOMAIN" -all -silent -o "$DOMAIN/passive.txt"
+echo "[+] 1. Starting Passive Discovery (Subfinder)..."
+# Subfinder is API based, so we use a spinner instead of a % bar
+subfinder -d "$DOMAIN" -all -silent -o "$DOMAIN/passive.txt" &
+PID=$!
+spinner $PID
+wait $PID
+echo " -> Done."
 
 # --- Phase 2: Filter Alive (Resolution) ---
 echo "[+] 2. Filtering alive subdomains..."
-# Reads from folder, writes to folder
-puredns resolve "$DOMAIN/passive.txt" -r "$RESOLVERS" --write "$DOMAIN/passive_resolved.txt" --quiet
+# Removed --quiet so PureDNS native bar shows
+puredns resolve "$DOMAIN/passive.txt" -r "$RESOLVERS" --write "$DOMAIN/passive_resolved.txt" --rate-limit 300
 
 # --- Phase 3a: Bruteforce ---
 echo "[+] 3a. Bruteforcing hidden subdomains..."
-# Writes to folder
-puredns bruteforce "$WORDLIST" "$DOMAIN" -r "$RESOLVERS" --write "$DOMAIN/bruteforce.txt" --quiet
+# Removed --quiet so PureDNS native bar shows
+puredns bruteforce "$WORDLIST" "$DOMAIN" -r "$RESOLVERS" --write "$DOMAIN/bruteforce.txt" --rate-limit 300
 
 # --- Phase 3b: Permutations ---
 echo "[+] 3b. Generating Permutations..."
-# Check if files exist inside the folder before merging
 if [ -f "$DOMAIN/passive_resolved.txt" ] || [ -f "$DOMAIN/bruteforce.txt" ]; then
     cat "$DOMAIN/passive_resolved.txt" "$DOMAIN/bruteforce.txt" 2>/dev/null | sort -u > "$DOMAIN/known_alive.txt"
     
     if [ -s "$DOMAIN/known_alive.txt" ]; then
-        cat "$DOMAIN/known_alive.txt" | alterx -silent | puredns resolve -r "$RESOLVERS" --write "$DOMAIN/permutations.txt" --quiet
+        # Removed --quiet so PureDNS native bar shows
+        cat "$DOMAIN/known_alive.txt" | alterx -silent | puredns resolve -r "$RESOLVERS" --write "$DOMAIN/permutations.txt" --rate-limit 300
     else
         touch "$DOMAIN/permutations.txt"
     fi
@@ -126,13 +152,18 @@ echo "    -> Found $COUNT live subdomains."
 # --- Phase 5: Web Probing ---
 if [ "$COUNT" -gt 0 ]; then
     echo "[+] 5. Probing for Web Servers (HTTPX)..."
-    httpx -l "$DOMAIN/final_all.txt" \
+    
+    # Using 'pv' to show a progress bar based on the line count ($COUNT)
+    cat "$DOMAIN/final_all.txt" | \
+    pv -N "Probing" -p -t -e -s "$COUNT" | \
+    httpx \
           -title -status-code -ip -cname -tech-detect -web-server \
           -random-agent \
           -follow-redirects \
           -threads 50 \
-          -o "$DOMAIN/web_assets.txt"
+          -o "$DOMAIN/web_assets.txt" -silent
 
+    echo ""
     echo "    -> HTTP assets saved to: $DOMAIN/web_assets.txt"
 else
     echo "[!] No subdomains found. Skipping HTTP probing."
