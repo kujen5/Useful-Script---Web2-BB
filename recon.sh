@@ -1034,8 +1034,18 @@ phase10_reporting() {
         local cs_pid
         cs_pid=$(cat "$certstream_pid_file")
         if kill -0 "$cs_pid" 2>/dev/null; then
-            log INFO "Waiting for certstream monitor to finish..."
-            wait "$cs_pid" 2>/dev/null || true
+            log INFO "Waiting for certstream monitor to finish (max 90s)..."
+            local waited=0
+            while kill -0 "$cs_pid" 2>/dev/null && [[ $waited -lt 90 ]]; do
+                sleep 1
+                waited=$((waited + 1))
+            done
+            if kill -0 "$cs_pid" 2>/dev/null; then
+                log WARN "Certstream monitor still running after 90s, killing it."
+                kill "$cs_pid" 2>/dev/null || true
+                sleep 2
+                kill -9 "$cs_pid" 2>/dev/null || true
+            fi
         fi
         rm -f "$certstream_pid_file"
 

@@ -16,6 +16,7 @@ import json
 import time
 import signal
 import os
+import threading
 
 try:
     import websocket
@@ -89,6 +90,12 @@ class CertstreamMonitor:
         print(f"[certstream] Connected. Monitoring for: {', '.join(self.domains)}", file=sys.stderr)
         self.start_time = time.time()
 
+    def _duration_watchdog(self):
+        """Hard kill after duration expires, regardless of WebSocket state."""
+        print(f"[certstream] Duration expired ({self.duration}s). Shutting down.", file=sys.stderr)
+        self.running = False
+        os._exit(0)
+
     def run(self):
         if not HAS_WEBSOCKET:
             print("[certstream] ERROR: websocket-client not installed.", file=sys.stderr)
@@ -97,6 +104,13 @@ class CertstreamMonitor:
 
         url = "wss://certstream.calidog.io/"
         print(f"[certstream] Connecting to {url}...", file=sys.stderr)
+
+        self.start_time = time.time()
+
+        if self.duration:
+            watchdog = threading.Timer(self.duration, self._duration_watchdog)
+            watchdog.daemon = True
+            watchdog.start()
 
         while self.running:
             try:
