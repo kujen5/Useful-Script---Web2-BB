@@ -27,6 +27,7 @@ THREADS=50
 RATE_LIMIT=300
 GITHUB_TOKEN=""
 SKIP_PHASES=""
+RUN_PHASES=""
 ONLY_PASSIVE=false
 RESUME=false
 TIMESTAMP=""
@@ -108,6 +109,24 @@ phase_end() {
 
 should_skip() {
     local phase_num="$1"
+
+    # If --run-phase is specified, skip phases NOT in the list
+    if [[ -n "$RUN_PHASES" ]]; then
+        # Phase 0 (setup) should always run
+        if [[ "$phase_num" == "0" ]]; then
+            return 1  # Don't skip
+        fi
+
+        # Check if this phase is in the run list
+        echo "$RUN_PHASES" | tr ',' '\n' | grep -qx "$phase_num"
+        if [[ $? -eq 0 ]]; then
+            return 1  # Found in run list, don't skip
+        else
+            return 0  # Not in run list, skip it
+        fi
+    fi
+
+    # Otherwise check skip list
     if [[ -n "$SKIP_PHASES" ]]; then
         echo "$SKIP_PHASES" | tr ',' '\n' | grep -qx "$phase_num"
         return $?
@@ -165,6 +184,7 @@ usage() {
     echo "  --domains-file, -l <file>   File with list of domains (one per line)"
     echo "  -t, --threads <n>           Thread count (default: 50)"
     echo "  --rate-limit <n>            DNS rate limit (default: 300)"
+    echo "  --run-phase <n,n,...>       Run ONLY specific phases (e.g., 2,5,7)"
     echo "  --skip-phase <n,n,...>      Skip specific phases (e.g., 5,8)"
     echo "  --only-passive              Run phases 0-3 only"
     echo "  --resume                    Resume using latest output dir"
@@ -179,6 +199,7 @@ usage() {
     echo "Examples:"
     echo "  $0 --program hackerone -d example.com"
     echo "  $0 -p bugcrowd -d target.com --skip-phase 5,8"
+    echo "  $0 -p bugcrowd -d target.com --run-phase 2,7,8  # Run only specific phases"
     echo "  $0 -p yahoo --domains-file domains.txt"
     echo "  $0 -p google -d corp.google.com --only-passive"
     echo "  $0 -p meta -d facebook.com -t 100 --rate-limit 1000"
@@ -199,6 +220,8 @@ parse_args() {
                 THREADS="$2"; shift 2 ;;
             --rate-limit)
                 RATE_LIMIT="$2"; shift 2 ;;
+            --run-phase)
+                RUN_PHASES="$2"; shift 2 ;;
             --skip-phase)
                 SKIP_PHASES="$2"; shift 2 ;;
             --only-passive)
@@ -239,6 +262,17 @@ parse_args() {
     if [[ -n "$DOMAINS_FILE" && ! -f "$DOMAINS_FILE" ]]; then
         echo -e "${RED}Error: Domains file not found: ${DOMAINS_FILE}${NC}"
         exit 1
+    fi
+
+    # Validate conflicting options
+    if [[ -n "$RUN_PHASES" && -n "$SKIP_PHASES" ]]; then
+        echo -e "${RED}Error: Cannot use both --run-phase and --skip-phase at the same time.${NC}"
+        usage
+    fi
+
+    if [[ -n "$RUN_PHASES" && "$ONLY_PASSIVE" == true ]]; then
+        echo -e "${RED}Error: Cannot use both --run-phase and --only-passive at the same time.${NC}"
+        usage
     fi
 }
 
@@ -395,7 +429,7 @@ phase0_setup() {
 
 phase1_root_domain() {
     if should_skip 1; then
-        log INFO "Skipping Phase 1 (--skip-phase)"
+        log INFO "Skipping Phase 1"
         return 0
     fi
 
@@ -436,7 +470,7 @@ phase1_root_domain() {
 
 phase2_passive() {
     if should_skip 2; then
-        log INFO "Skipping Phase 2 (--skip-phase)"
+        log INFO "Skipping Phase 2"
         return 0
     fi
 
@@ -528,7 +562,7 @@ phase2_passive() {
 
 phase3_dns() {
     if should_skip 3; then
-        log INFO "Skipping Phase 3 (--skip-phase)"
+        log INFO "Skipping Phase 3"
         return 0
     fi
 
@@ -588,7 +622,7 @@ phase3_dns() {
 
 phase4_active() {
     if should_skip 4; then
-        log INFO "Skipping Phase 4 (--skip-phase)"
+        log INFO "Skipping Phase 4"
         return 0
     fi
 
@@ -674,7 +708,7 @@ merge_master() {
 
 phase5_ports() {
     if should_skip 5; then
-        log INFO "Skipping Phase 5 (--skip-phase)"
+        log INFO "Skipping Phase 5"
         return 0
     fi
 
@@ -727,7 +761,7 @@ phase5_ports() {
 
 phase6_web() {
     if should_skip 6; then
-        log INFO "Skipping Phase 6 (--skip-phase)"
+        log INFO "Skipping Phase 6"
         return 0
     fi
 
@@ -849,7 +883,7 @@ for line in open('${dir}/httpx_output.json'):
 
 phase7_content() {
     if should_skip 7; then
-        log INFO "Skipping Phase 7 (--skip-phase)"
+        log INFO "Skipping Phase 7"
         return 0
     fi
 
@@ -916,6 +950,39 @@ phase7_content() {
         log INFO "JavaScript files: $(count_lines "${dir}/js_files.txt")"
     fi
 
+    # Run JSAnalyzer on discovered JS files
+    if [[ -s "${dir}/js_files.txt" ]]; then
+        local js_count
+        js_count=$(count_lines "${dir}/js_files.txt")
+        log INFO "Analyzing ${js_count} JavaScript files for endpoints, secrets, and URLs..."
+
+        # Run jsanalyzer.py and capture output
+        if [[ -f "${SCRIPT_DIR}/jsanalyzer.py" ]]; then
+            python3 "${SCRIPT_DIR}/jsanalyzer.py" "${dir}/js_files.txt" > "${dir}/js_analysis.txt" 2>/dev/null || true
+
+            if [[ -s "${dir}/js_analysis.txt" ]]; then
+                # Extract structured findings for easier analysis
+                grep -i "^\[ENDPOINT\]" "${dir}/js_analysis.txt" | cut -d']' -f2- | sed 's/^ *//' | sort -u > "${dir}/js_endpoints.txt" 2>/dev/null || true
+                grep -i "^\[URL\]" "${dir}/js_analysis.txt" | cut -d']' -f2- | sed 's/^ *//' | sort -u > "${dir}/js_urls.txt" 2>/dev/null || true
+                grep -i "^\[SECRET\]" "${dir}/js_analysis.txt" | cut -d']' -f2- | sed 's/^ *//' | sort -u > "${dir}/js_secrets.txt" 2>/dev/null || true
+                grep -i "^\[EMAIL\]" "${dir}/js_analysis.txt" | cut -d']' -f2- | sed 's/^ *//' | sort -u > "${dir}/js_emails.txt" 2>/dev/null || true
+                grep -i "^\[FILE\]" "${dir}/js_analysis.txt" | cut -d']' -f2- | sed 's/^ *//' | sort -u > "${dir}/js_files_found.txt" 2>/dev/null || true
+
+                log INFO "  Endpoints: $(count_lines "${dir}/js_endpoints.txt")"
+                log INFO "  URLs: $(count_lines "${dir}/js_urls.txt")"
+                log INFO "  Secrets: $(count_lines "${dir}/js_secrets.txt")"
+                log INFO "  Emails: $(count_lines "${dir}/js_emails.txt")"
+                log INFO "  Files: $(count_lines "${dir}/js_files_found.txt")"
+            else
+                log WARN "JS analysis produced no output"
+            fi
+        else
+            log WARN "jsanalyzer.py not found at ${SCRIPT_DIR}/jsanalyzer.py. Skipping JS analysis."
+        fi
+    else
+        log INFO "No JavaScript files to analyze"
+    fi
+
     phase_end 7 "OK"
 }
 
@@ -925,7 +992,7 @@ phase7_content() {
 
 phase8_vulns() {
     if should_skip 8; then
-        log INFO "Skipping Phase 8 (--skip-phase)"
+        log INFO "Skipping Phase 8"
         return 0
     fi
 
@@ -1011,7 +1078,7 @@ for line in open('${dir}/nuclei_all.json'):
 
 phase9_certstream() {
     if should_skip 9; then
-        log INFO "Skipping Phase 9 (--skip-phase)"
+        log INFO "Skipping Phase 9"
         return 0
     fi
 
@@ -1186,7 +1253,346 @@ with open('${report_dir}/stats.json', 'w') as f:
     json.dump(stats, f, indent=2)
 " 2>/dev/null || true
 
+    # Generate consolidated domain report
+    generate_consolidated_report
+
     phase_end 10 "OK"
+}
+
+# ============================================================================
+# CONSOLIDATED DOMAIN REPORT
+# ============================================================================
+
+generate_consolidated_report() {
+    log INFO "Generating consolidated domain report..."
+    local consolidated="${OUTDIR}/${DOMAIN}_consolidated_report.txt"
+
+    {
+        echo "╔══════════════════════════════════════════════════════════════════════════╗"
+        echo "║                    CONSOLIDATED RECONNAISSANCE REPORT                     ║"
+        echo "╚══════════════════════════════════════════════════════════════════════════╝"
+        echo ""
+        echo "═══════════════════════════════════════════════════════════════════════════"
+        echo "  BASIC INFORMATION"
+        echo "═══════════════════════════════════════════════════════════════════════════"
+        echo "Program:          ${PROGRAM}"
+        echo "Target Domain:    ${DOMAIN}"
+        echo "Scan Date:        $(date '+%Y-%m-%d %H:%M:%S')"
+        echo "Output Directory: ${OUTDIR}"
+        echo ""
+
+        echo "═══════════════════════════════════════════════════════════════════════════"
+        echo "  DISCOVERY SUMMARY"
+        echo "═══════════════════════════════════════════════════════════════════════════"
+        echo "Total Subdomains:     $(count_lines "${OUTDIR}/master_subdomains.txt" 2>/dev/null)"
+        echo "Live Web Assets:      $(count_lines "${OUTDIR}/phase6_web/live_urls.txt" 2>/dev/null)"
+        echo "Open Ports:           $(count_lines "${OUTDIR}/phase5_ports/naabu_scan.txt" 2>/dev/null)"
+        echo "URLs Discovered:      $(count_lines "${OUTDIR}/phase7_content/all_urls.txt" 2>/dev/null)"
+        echo "JS Files Analyzed:    $(count_lines "${OUTDIR}/phase7_content/js_files.txt" 2>/dev/null)"
+        echo "Vulnerabilities:      $(count_lines "${OUTDIR}/phase8_vulns/nuclei_all.txt" 2>/dev/null)"
+        echo ""
+
+        # ASN Information
+        if [[ -f "${OUTDIR}/phase1_rootdomain/asn_info.json" ]]; then
+            echo "═══════════════════════════════════════════════════════════════════════════"
+            echo "  ASN INFORMATION"
+            echo "═══════════════════════════════════════════════════════════════════════════"
+            python3 -c "
+import json, sys
+try:
+    with open('${OUTDIR}/phase1_rootdomain/asn_info.json') as f:
+        data = json.load(f)
+    print('ASN Number:       {}'.format(data.get('asn', 'N/A')))
+    print('ASN Name:         {}'.format(data.get('name', 'N/A')))
+    print('ASN Description:  {}'.format(data.get('description', 'N/A')))
+    print('IP Ranges:        {} CIDR blocks'.format(len(data.get('prefixes', []))))
+except:
+    print('ASN information not available')
+" 2>/dev/null || echo "ASN information not available"
+            echo ""
+        fi
+
+        # All Discovered Subdomains
+        echo "═══════════════════════════════════════════════════════════════════════════"
+        echo "  ALL DISCOVERED SUBDOMAINS ($(count_lines "${OUTDIR}/master_subdomains.txt" 2>/dev/null))"
+        echo "═══════════════════════════════════════════════════════════════════════════"
+        if [[ -f "${OUTDIR}/master_subdomains.txt" ]]; then
+            head -100 "${OUTDIR}/master_subdomains.txt" 2>/dev/null || echo "No subdomains found"
+            local total_subs
+            total_subs=$(count_lines "${OUTDIR}/master_subdomains.txt" 2>/dev/null)
+            if [[ $total_subs -gt 100 ]]; then
+                echo ""
+                echo "... and $((total_subs - 100)) more subdomains"
+                echo "(See master_subdomains.txt for full list)"
+            fi
+        else
+            echo "No subdomains discovered"
+        fi
+        echo ""
+
+        # Live Web URLs
+        echo "═══════════════════════════════════════════════════════════════════════════"
+        echo "  LIVE WEB URLS ($(count_lines "${OUTDIR}/phase6_web/live_urls.txt" 2>/dev/null))"
+        echo "═══════════════════════════════════════════════════════════════════════════"
+        if [[ -f "${OUTDIR}/phase6_web/live_urls.txt" && -s "${OUTDIR}/phase6_web/live_urls.txt" ]]; then
+            head -50 "${OUTDIR}/phase6_web/live_urls.txt" 2>/dev/null || echo "No live URLs found"
+            local total_urls
+            total_urls=$(count_lines "${OUTDIR}/phase6_web/live_urls.txt" 2>/dev/null)
+            if [[ $total_urls -gt 50 ]]; then
+                echo ""
+                echo "... and $((total_urls - 50)) more URLs"
+                echo "(See phase6_web/live_urls.txt for full list)"
+            fi
+        else
+            echo "No live URLs found"
+        fi
+        echo ""
+
+        # Status Code Breakdown
+        echo "═══════════════════════════════════════════════════════════════════════════"
+        echo "  STATUS CODE BREAKDOWN"
+        echo "═══════════════════════════════════════════════════════════════════════════"
+        if [[ -d "${OUTDIR}/phase6_web/by_status" ]]; then
+            for status_file in "${OUTDIR}/phase6_web/by_status"/*.txt; do
+                if [[ -f "$status_file" && -s "$status_file" ]]; then
+                    local status_code
+                    status_code=$(basename "$status_file" .txt)
+                    printf "  Status %-4s: %s URLs\n" "$status_code" "$(count_lines "$status_file")"
+                fi
+            done
+        else
+            echo "No status code data available"
+        fi
+        echo ""
+
+        # Open Ports Summary
+        echo "═══════════════════════════════════════════════════════════════════════════"
+        echo "  OPEN PORTS (Top 20)"
+        echo "═══════════════════════════════════════════════════════════════════════════"
+        if [[ -f "${OUTDIR}/phase5_ports/naabu_scan.txt" && -s "${OUTDIR}/phase5_ports/naabu_scan.txt" ]]; then
+            head -20 "${OUTDIR}/phase5_ports/naabu_scan.txt" 2>/dev/null
+            local total_ports
+            total_ports=$(count_lines "${OUTDIR}/phase5_ports/naabu_scan.txt" 2>/dev/null)
+            if [[ $total_ports -gt 20 ]]; then
+                echo "... and $((total_ports - 20)) more open ports"
+                echo "(See phase5_ports/naabu_scan.txt for full list)"
+            fi
+        else
+            echo "No open ports found"
+        fi
+        echo ""
+
+        # JavaScript Analysis - Endpoints
+        echo "═══════════════════════════════════════════════════════════════════════════"
+        echo "  JAVASCRIPT ANALYSIS - API ENDPOINTS"
+        echo "═══════════════════════════════════════════════════════════════════════════"
+        if [[ -f "${OUTDIR}/phase7_content/js_endpoints.txt" && -s "${OUTDIR}/phase7_content/js_endpoints.txt" ]]; then
+            echo "Total Endpoints: $(count_lines "${OUTDIR}/phase7_content/js_endpoints.txt")"
+            echo ""
+            head -30 "${OUTDIR}/phase7_content/js_endpoints.txt" 2>/dev/null
+            local total_endpoints
+            total_endpoints=$(count_lines "${OUTDIR}/phase7_content/js_endpoints.txt" 2>/dev/null)
+            if [[ $total_endpoints -gt 30 ]]; then
+                echo "... and $((total_endpoints - 30)) more endpoints"
+                echo "(See phase7_content/js_endpoints.txt for full list)"
+            fi
+        else
+            echo "No endpoints found in JavaScript files"
+        fi
+        echo ""
+
+        # JavaScript Analysis - URLs
+        echo "═══════════════════════════════════════════════════════════════════════════"
+        echo "  JAVASCRIPT ANALYSIS - URLS"
+        echo "═══════════════════════════════════════════════════════════════════════════"
+        if [[ -f "${OUTDIR}/phase7_content/js_urls.txt" && -s "${OUTDIR}/phase7_content/js_urls.txt" ]]; then
+            echo "Total URLs: $(count_lines "${OUTDIR}/phase7_content/js_urls.txt")"
+            echo ""
+            head -20 "${OUTDIR}/phase7_content/js_urls.txt" 2>/dev/null
+            local total_js_urls
+            total_js_urls=$(count_lines "${OUTDIR}/phase7_content/js_urls.txt" 2>/dev/null)
+            if [[ $total_js_urls -gt 20 ]]; then
+                echo "... and $((total_js_urls - 20)) more URLs"
+                echo "(See phase7_content/js_urls.txt for full list)"
+            fi
+        else
+            echo "No URLs found in JavaScript files"
+        fi
+        echo ""
+
+        # JavaScript Analysis - Secrets
+        echo "═══════════════════════════════════════════════════════════════════════════"
+        echo "  JAVASCRIPT ANALYSIS - SECRETS & API KEYS (*** HIGH PRIORITY ***)"
+        echo "═══════════════════════════════════════════════════════════════════════════"
+        if [[ -f "${OUTDIR}/phase7_content/js_secrets.txt" && -s "${OUTDIR}/phase7_content/js_secrets.txt" ]]; then
+            echo "⚠️  TOTAL SECRETS FOUND: $(count_lines "${OUTDIR}/phase7_content/js_secrets.txt")"
+            echo ""
+            cat "${OUTDIR}/phase7_content/js_secrets.txt" 2>/dev/null
+        else
+            echo "✓ No secrets found in JavaScript files"
+        fi
+        echo ""
+
+        # JavaScript Analysis - Emails
+        echo "═══════════════════════════════════════════════════════════════════════════"
+        echo "  JAVASCRIPT ANALYSIS - EMAIL ADDRESSES"
+        echo "═══════════════════════════════════════════════════════════════════════════"
+        if [[ -f "${OUTDIR}/phase7_content/js_emails.txt" && -s "${OUTDIR}/phase7_content/js_emails.txt" ]]; then
+            echo "Total Emails: $(count_lines "${OUTDIR}/phase7_content/js_emails.txt")"
+            echo ""
+            head -20 "${OUTDIR}/phase7_content/js_emails.txt" 2>/dev/null
+            local total_emails
+            total_emails=$(count_lines "${OUTDIR}/phase7_content/js_emails.txt" 2>/dev/null)
+            if [[ $total_emails -gt 20 ]]; then
+                echo "... and $((total_emails - 20)) more emails"
+                echo "(See phase7_content/js_emails.txt for full list)"
+            fi
+        else
+            echo "No email addresses found"
+        fi
+        echo ""
+
+        # JavaScript Analysis - Interesting Files
+        echo "═══════════════════════════════════════════════════════════════════════════"
+        echo "  JAVASCRIPT ANALYSIS - INTERESTING FILES"
+        echo "═══════════════════════════════════════════════════════════════════════════"
+        if [[ -f "${OUTDIR}/phase7_content/js_files_found.txt" && -s "${OUTDIR}/phase7_content/js_files_found.txt" ]]; then
+            echo "Total Files: $(count_lines "${OUTDIR}/phase7_content/js_files_found.txt")"
+            echo ""
+            cat "${OUTDIR}/phase7_content/js_files_found.txt" 2>/dev/null
+        else
+            echo "No interesting file paths found"
+        fi
+        echo ""
+
+        # CNAME Records (Subdomain Takeover Candidates)
+        echo "═══════════════════════════════════════════════════════════════════════════"
+        echo "  CNAME RECORDS (Potential Subdomain Takeover)"
+        echo "═══════════════════════════════════════════════════════════════════════════"
+        if [[ -f "${OUTDIR}/phase3_dns/cnames.txt" && -s "${OUTDIR}/phase3_dns/cnames.txt" ]]; then
+            echo "Total CNAMEs: $(count_lines "${OUTDIR}/phase3_dns/cnames.txt")"
+            echo ""
+            head -30 "${OUTDIR}/phase3_dns/cnames.txt" 2>/dev/null
+            local total_cnames
+            total_cnames=$(count_lines "${OUTDIR}/phase3_dns/cnames.txt" 2>/dev/null)
+            if [[ $total_cnames -gt 30 ]]; then
+                echo "... and $((total_cnames - 30)) more CNAMEs"
+                echo "(See phase3_dns/cnames.txt for full list)"
+            fi
+        else
+            echo "No CNAME records found"
+        fi
+        echo ""
+
+        # Vulnerabilities - Critical
+        echo "═══════════════════════════════════════════════════════════════════════════"
+        echo "  CRITICAL VULNERABILITIES (*** IMMEDIATE ACTION REQUIRED ***)"
+        echo "═══════════════════════════════════════════════════════════════════════════"
+        if [[ -f "${OUTDIR}/phase8_vulns/nuclei_critical.json" && -s "${OUTDIR}/phase8_vulns/nuclei_critical.json" ]]; then
+            echo "⚠️  CRITICAL FINDINGS: $(count_lines "${OUTDIR}/phase8_vulns/nuclei_critical.json")"
+            echo ""
+            python3 -c "
+import json
+try:
+    with open('${OUTDIR}/phase8_vulns/nuclei_critical.json') as f:
+        for line in f:
+            try:
+                obj = json.loads(line)
+                tid = obj.get('template-id', 'unknown')
+                name = obj.get('info', {}).get('name', 'Unknown')
+                matched = obj.get('matched-at', 'N/A')
+                print(f'[{tid}] {name}')
+                print(f'  → {matched}')
+                print()
+            except:
+                pass
+except:
+    print('No critical vulnerabilities')
+" 2>/dev/null
+        else
+            echo "✓ No critical vulnerabilities found"
+        fi
+        echo ""
+
+        # Vulnerabilities - High
+        echo "═══════════════════════════════════════════════════════════════════════════"
+        echo "  HIGH SEVERITY VULNERABILITIES"
+        echo "═══════════════════════════════════════════════════════════════════════════"
+        if [[ -f "${OUTDIR}/phase8_vulns/nuclei_high.json" && -s "${OUTDIR}/phase8_vulns/nuclei_high.json" ]]; then
+            echo "⚠️  HIGH SEVERITY FINDINGS: $(count_lines "${OUTDIR}/phase8_vulns/nuclei_high.json")"
+            echo ""
+            python3 -c "
+import json
+try:
+    with open('${OUTDIR}/phase8_vulns/nuclei_high.json') as f:
+        for line in f:
+            try:
+                obj = json.loads(line)
+                tid = obj.get('template-id', 'unknown')
+                name = obj.get('info', {}).get('name', 'Unknown')
+                matched = obj.get('matched-at', 'N/A')
+                print(f'[{tid}] {name}')
+                print(f'  → {matched}')
+                print()
+            except:
+                pass
+except:
+    print('No high severity vulnerabilities')
+" 2>/dev/null
+        else
+            echo "✓ No high severity vulnerabilities found"
+        fi
+        echo ""
+
+        # Vulnerability Summary
+        echo "═══════════════════════════════════════════════════════════════════════════"
+        echo "  VULNERABILITY SUMMARY (All Severities)"
+        echo "═══════════════════════════════════════════════════════════════════════════"
+        for sev in critical high medium low info; do
+            local sev_file="${OUTDIR}/phase8_vulns/nuclei_${sev}.json"
+            if [[ -f "$sev_file" ]]; then
+                printf "  %-10s: %s findings\n" "${sev^^}" "$(count_lines "$sev_file" 2>/dev/null)"
+            fi
+        done
+        echo ""
+        echo "See phase8_vulns/ for detailed vulnerability reports"
+        echo ""
+
+        # Next Steps
+        echo "═══════════════════════════════════════════════════════════════════════════"
+        echo "  RECOMMENDED NEXT STEPS"
+        echo "═══════════════════════════════════════════════════════════════════════════"
+        echo "1. Review and validate all CRITICAL and HIGH severity vulnerabilities"
+        echo "2. Check for exposed secrets in phase7_content/js_secrets.txt"
+        echo "3. Test CNAME records for subdomain takeover vulnerabilities"
+        echo "4. Manually verify interesting API endpoints from JavaScript analysis"
+        echo "5. Review open ports for unnecessary services"
+        echo "6. Test discovered admin/debug/internal endpoints"
+        echo "7. Analyze URLs for potential injection points"
+        echo "8. Check for outdated software versions in httpx output"
+        echo ""
+
+        # File Locations
+        echo "═══════════════════════════════════════════════════════════════════════════"
+        echo "  DETAILED OUTPUT LOCATIONS"
+        echo "═══════════════════════════════════════════════════════════════════════════"
+        echo "Master Subdomains:    master_subdomains.txt"
+        echo "Live URLs:            phase6_web/live_urls.txt"
+        echo "Open Ports:           phase5_ports/naabu_scan.txt"
+        echo "JS Endpoints:         phase7_content/js_endpoints.txt"
+        echo "JS Secrets:           phase7_content/js_secrets.txt"
+        echo "Critical Vulns:       phase8_vulns/nuclei_critical.json"
+        echo "High Vulns:           phase8_vulns/nuclei_high.json"
+        echo "Full Summary:         report/summary.txt"
+        echo "Statistics (JSON):    report/stats.json"
+        echo ""
+        echo "╔══════════════════════════════════════════════════════════════════════════╗"
+        echo "║                         END OF CONSOLIDATED REPORT                        ║"
+        echo "╚══════════════════════════════════════════════════════════════════════════╝"
+    } > "$consolidated"
+
+    log INFO "Consolidated report saved: ${BOLD}${DOMAIN}_consolidated_report.txt${NC}"
+    log INFO "Full path: ${consolidated}"
 }
 
 # ============================================================================

@@ -1,0 +1,259 @@
+╔══════════════════════════════════════════════════════════════════════════╗
+║                    CONSOLIDATED RECONNAISSANCE REPORT                     ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+═══════════════════════════════════════════════════════════════════════════
+  BASIC INFORMATION
+═══════════════════════════════════════════════════════════════════════════
+Program:          ant-group-security-response-center
+Target Domain:    antom.com
+Scan Date:        2026-02-05 184610
+Output Directory: /home/kujen/Bug-Bounty-Script---Web2/ant-group-security-response-center/antom.com/2026-02-05_184610
+
+═══════════════════════════════════════════════════════════════════════════
+  DISCOVERY SUMMARY
+═══════════════════════════════════════════════════════════════════════════
+Total Subdomains:     23
+Live Web Assets:      72
+Open Ports:           62
+URLs Discovered:      4639
+JS Files Analyzed:    1171
+Vulnerabilities:      0
+
+═══════════════════════════════════════════════════════════════════════════
+  ASN INFORMATION
+═══════════════════════════════════════════════════════════════════════════
+ASN Number:       N/A
+ASN Name:         N/A
+ASN Description:  N/A
+IP Ranges:        0 CIDR blocks
+
+═══════════════════════════════════════════════════════════════════════════
+  ALL DISCOVERED SUBDOMAINS (23)
+═══════════════════════════════════════════════════════════════════════════
+2c2p-checkout.antom.com
+2c2p-portal.antom.com
+antom.com
+checkout.antom.com
+connect.antom.com
+dashboard-api.antom.com
+dashboard-apiv2.antom.com
+dashboard.antom.com
+docs.antom.com
+imgs-sea.antom.com
+knowledge-cn-admin.antom.com
+knowledge-cn-staging-admin.antom.com
+knowledge-cn-staging.antom.com
+knowledge-cn-uat.antom.com
+knowledge-cn.antom.com
+knowledge.antom.com
+legal.antom.com
+oss-bluetap.antom.com
+render.antom.com
+s.antom.com
+simpler.antom.com
+threeds-visa.antom.com
+www.antom.com
+
+═══════════════════════════════════════════════════════════════════════════
+  LIVE WEB URLS (72)
+═══════════════════════════════════════════════════════════════════════════
+http://2c2p-checkout.antom.com:1935
+http://knowledge-cn.antom.com:1935
+http://knowledge-cn-uat.antom.com:1935
+http://knowledge.antom.com:8080
+http://checkout.antom.com:1935
+http://connect.antom.com:1935
+https://2c2p-checkout.antom.com
+https://2c2p-checkout.antom.com:443
+http://2c2p-portal.antom.com:80
+http://docs.antom.com:80
+http://connect.antom.com:80
+http://imgs-sea.antom.com:80
+http://checkout.antom.com:80
+http://knowledge-cn.antom.com:80
+http://2c2p-checkout.antom.com:80
+https://knowledge-cn.antom.com
+https://knowledge-cn.antom.com:443
+https://imgs-sea.antom.com
+https://imgs-sea.antom.com:443
+https://knowledge.antom.com:8443
+http://dashboard-apiv2.antom.com:80
+https://2c2p-portal.antom.com:443
+https://2c2p-portal.antom.com
+https://docs.antom.com:443
+https://checkout.antom.com
+https://checkout.antom.com:443
+https://docs.antom.com
+http://dashboard-api.antom.com:80
+https://dashboard-apiv2.antom.com
+https://dashboard-apiv2.antom.com:443
+http://legal.antom.com:1935
+https://connect.antom.com:443
+http://dashboard.antom.com:80
+https://dashboard-api.antom.com
+https://dashboard-api.antom.com:443
+http://render.antom.com:1935
+http://oss-bluetap.antom.com:80
+http://simpler.antom.com:1935
+https://connect.antom.com
+https://dashboard.antom.com:443
+https://oss-bluetap.antom.com
+https://oss-bluetap.antom.com:443
+http://legal.antom.com:80
+http://simpler.antom.com:80
+http://s.antom.com:8080
+http://s.antom.com:80
+https://dashboard.antom.com
+http://threeds-visa.antom.com:80
+http://render.antom.com:80
+https://legal.antom.com:443
+
+... and 22 more URLs
+(See phase6_web/live_urls.txt for full list)
+
+═══════════════════════════════════════════════════════════════════════════
+  STATUS CODE BREAKDOWN
+═══════════════════════════════════════════════════════════════════════════
+  Status 200 : 44 URLs
+  Status 403 : 2 URLs
+  Status 404 : 12 URLs
+
+═══════════════════════════════════════════════════════════════════════════
+  OPEN PORTS (Top 20)
+═══════════════════════════════════════════════════════════════════════════
+connect.antom.com:1935
+connect.antom.com:443
+connect.antom.com:80
+connect.antom.com:843
+checkout.antom.com:1935
+checkout.antom.com:80
+checkout.antom.com:443
+checkout.antom.com:843
+s.antom.com:80
+s.antom.com:8080
+s.antom.com:443
+s.antom.com:8443
+oss-bluetap.antom.com:443
+oss-bluetap.antom.com:80
+2c2p-portal.antom.com:443
+2c2p-portal.antom.com:80
+docs.antom.com:443
+docs.antom.com:80
+imgs-sea.antom.com:80
+imgs-sea.antom.com:443
+... and 42 more open ports
+(See phase5_ports/naabu_scan.txt for full list)
+
+═══════════════════════════════════════════════════════════════════════════
+  JAVASCRIPT ANALYSIS - API ENDPOINTS
+═══════════════════════════════════════════════════════════════════════════
+No endpoints found in JavaScript files
+(Note: JS analysis may not have been run on this scan)
+
+═══════════════════════════════════════════════════════════════════════════
+  JAVASCRIPT ANALYSIS - URLS
+═══════════════════════════════════════════════════════════════════════════
+No URLs found in JavaScript files
+(Note: JS analysis may not have been run on this scan)
+
+═══════════════════════════════════════════════════════════════════════════
+  JAVASCRIPT ANALYSIS - SECRETS & API KEYS (*** HIGH PRIORITY ***)
+═══════════════════════════════════════════════════════════════════════════
+✓ No secrets found in JavaScript files
+(Note: JS analysis may not have been run on this scan)
+
+═══════════════════════════════════════════════════════════════════════════
+  JAVASCRIPT ANALYSIS - EMAIL ADDRESSES
+═══════════════════════════════════════════════════════════════════════════
+No email addresses found
+(Note: JS analysis may not have been run on this scan)
+
+═══════════════════════════════════════════════════════════════════════════
+  JAVASCRIPT ANALYSIS - INTERESTING FILES
+═══════════════════════════════════════════════════════════════════════════
+No interesting file paths found
+(Note: JS analysis may not have been run on this scan)
+
+═══════════════════════════════════════════════════════════════════════════
+  CNAME RECORDS (Potential Subdomain Takeover)
+═══════════════════════════════════════════════════════════════════════════
+Total CNAMEs: 39
+
+imgs-sea.antom.com [[35mCNAME[0m] [[32msg.rr2.internet-intl.spanner.alipaydns.com[0m] 
+2c2p-portal.antom.com [[35mCNAME[0m] [[32msg.rr2.internet-intl.spanner.alipaydns.com[0m] 
+dashboard-apiv2.antom.com [[35mCNAME[0m] [[32mglobal-inner.alipaydns.com[0m] 
+dashboard-apiv2.antom.com [[35mCNAME[0m] [[32msg-inner.alipaydns.com[0m] 
+dashboard-apiv2.antom.com [[35mCNAME[0m] [[32msg-inner-vips.alipaydns.com[0m] 
+dashboard-apiv2.antom.com [[35mCNAME[0m] [[32mde-inner.alipaydns.com[0m] 
+dashboard-apiv2.antom.com [[35mCNAME[0m] [[32mde-inner-vips.alipaydns.com[0m] 
+connect.antom.com [[35mCNAME[0m] [[32mconnect.antom.com.w.cdngslb.com[0m] 
+oss-bluetap.antom.com [[35mCNAME[0m] [[32msg.rr2.internet-intl.spanner.alipaydns.com[0m] 
+knowledge-cn.antom.com [[35mCNAME[0m] [[32mknowledge-cn.antom.com.w.cdngslb.com[0m] 
+2c2p-checkout.antom.com [[35mCNAME[0m] [[32m2c2p-checkout.antom.com.w.cdngslb.com[0m] 
+render.antom.com [[35mCNAME[0m] [[32mrender.antom.com.queniuak.com[0m] 
+knowledge-cn-admin.antom.com [[35mCNAME[0m] [[32malb-6orf0l7qu1501t0e2e.cn-hongkong.alb.aliyuncsslbintl.com[0m] 
+knowledge-cn-uat.antom.com [[35mCNAME[0m] [[32mknowledge-cn-uat.antom.com.w.cdngslb.com[0m] 
+docs.antom.com [[35mCNAME[0m] [[32msg.rr2.internet-intl.spanner.alipaydns.com[0m] 
+www.antom.com [[35mCNAME[0m] [[32mwww.antom.com.a1.initgg.com[0m] 
+dashboard-api.antom.com [[35mCNAME[0m] [[32mglobal-sea-inner.alipaydns.com[0m] 
+dashboard-api.antom.com [[35mCNAME[0m] [[32msg-sea-inner.alipaydns.com[0m] 
+dashboard-api.antom.com [[35mCNAME[0m] [[32msg-inner-vips.alipaydns.com[0m] 
+dashboard-api.antom.com [[35mCNAME[0m] [[32museast-sea-inner.alipaydns.com[0m] 
+dashboard-api.antom.com [[35mCNAME[0m] [[32museast-inner-vips.alipaydns.com[0m] 
+dashboard-api.antom.com [[35mCNAME[0m] [[32msh-sea-inner.alipaydns.com[0m] 
+dashboard-api.antom.com [[35mCNAME[0m] [[32msh-inner-vips.alipaydns.com[0m] 
+s.antom.com [[35mCNAME[0m] [[32ms.antom.com.a1.initgg.com[0m] 
+knowledge.antom.com [[35mCNAME[0m] [[32m48190143.group43.sites.hubspot.net[0m] 
+knowledge.antom.com [[35mCNAME[0m] [[32mgroup43.sites.hscoscdn40.net[0m] 
+knowledge-cn-staging.antom.com [[35mCNAME[0m] [[32malb-vwtngkm51qgt067yy4.cn-hongkong.alb.aliyuncsslbintl.com[0m] 
+simpler.antom.com [[35mCNAME[0m] [[32msimpler.antom.com.w.cdngslb.com[0m] 
+dashboard.antom.com [[35mCNAME[0m] [[32mglobal-sea-inner.alipaydns.com[0m] 
+dashboard.antom.com [[35mCNAME[0m] [[32mde-sea-inner.alipaydns.com[0m] 
+... and 9 more CNAMEs
+(See phase3_dns/cnames.txt for full list)
+
+═══════════════════════════════════════════════════════════════════════════
+  CRITICAL VULNERABILITIES (*** IMMEDIATE ACTION REQUIRED ***)
+═══════════════════════════════════════════════════════════════════════════
+✓ No critical vulnerabilities found
+
+═══════════════════════════════════════════════════════════════════════════
+  HIGH SEVERITY VULNERABILITIES
+═══════════════════════════════════════════════════════════════════════════
+✓ No high severity vulnerabilities found
+
+═══════════════════════════════════════════════════════════════════════════
+  VULNERABILITY SUMMARY (All Severities)
+═══════════════════════════════════════════════════════════════════════════
+
+See phase8_vulns/ for detailed vulnerability reports
+
+═══════════════════════════════════════════════════════════════════════════
+  RECOMMENDED NEXT STEPS
+═══════════════════════════════════════════════════════════════════════════
+1. Review and validate all CRITICAL and HIGH severity vulnerabilities
+2. Check for exposed secrets in phase7_content/js_secrets.txt
+3. Test CNAME records for subdomain takeover vulnerabilities
+4. Manually verify interesting API endpoints from JavaScript analysis
+5. Review open ports for unnecessary services
+6. Test discovered admin/debug/internal endpoints
+7. Analyze URLs for potential injection points
+8. Check for outdated software versions in httpx output
+
+═══════════════════════════════════════════════════════════════════════════
+  DETAILED OUTPUT LOCATIONS
+═══════════════════════════════════════════════════════════════════════════
+Master Subdomains:    master_subdomains.txt
+Live URLs:            phase6_web/live_urls.txt
+Open Ports:           phase5_ports/naabu_scan.txt
+JS Endpoints:         phase7_content/js_endpoints.txt
+JS Secrets:           phase7_content/js_secrets.txt
+Critical Vulns:       phase8_vulns/nuclei_critical.json
+High Vulns:           phase8_vulns/nuclei_high.json
+Full Summary:         report/summary.txt
+Statistics (JSON):    report/stats.json
+
+╔══════════════════════════════════════════════════════════════════════════╗
+║                         END OF CONSOLIDATED REPORT                        ║
+╚══════════════════════════════════════════════════════════════════════════╝

@@ -1,0 +1,215 @@
+╔══════════════════════════════════════════════════════════════════════════╗
+║                    CONSOLIDATED RECONNAISSANCE REPORT                     ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+═══════════════════════════════════════════════════════════════════════════
+  BASIC INFORMATION
+═══════════════════════════════════════════════════════════════════════════
+Program:          ant-group-security-response-center
+Target Domain:    anext.com.sg
+Scan Date:        2026-02-05 193129
+Output Directory: /home/kujen/Bug-Bounty-Script---Web2/ant-group-security-response-center/anext.com.sg/2026-02-05_193129
+
+═══════════════════════════════════════════════════════════════════════════
+  DISCOVERY SUMMARY
+═══════════════════════════════════════════════════════════════════════════
+Total Subdomains:     29
+Live Web Assets:      25
+Open Ports:           16
+URLs Discovered:      768
+JS Files Analyzed:    35
+Vulnerabilities:      0
+
+═══════════════════════════════════════════════════════════════════════════
+  ASN INFORMATION
+═══════════════════════════════════════════════════════════════════════════
+ASN Number:       N/A
+ASN Name:         N/A
+ASN Description:  N/A
+IP Ranges:        0 CIDR blocks
+
+═══════════════════════════════════════════════════════════════════════════
+  ALL DISCOVERED SUBDOMAINS (29)
+═══════════════════════════════════════════════════════════════════════════
+anext.com.sg
+apus.anext.com.sg
+apusadmin.anext.com.sg
+bastion.anext.com.sg
+bkmng.anext.com.sg
+bkwordpress-public.anext.com.sg
+cdn.anext.com.sg
+collaboration.anext.com.sg
+go.anext.com.sg
+grafana.anext.com.sg
+ib.anext.com.sg
+ics.anext.com.sg
+nova.anext.com.sg
+onepaas.anext.com.sg
+opengw.anext.com.sg
+prism.anext.com.sg
+redirect.anext.com.sg
+secure.anext.com.sg
+sgbkcsbenchmng.anext.com.sg
+sgbkcsmadamng.pre.anext.com.sg
+sgservicemng.anext.com.sg
+skywalking.anext.com.sg
+telemetry.anext.com.sg
+terraform.anext.com.sg
+vpaasmng.anext.com.sg
+vpaasmng.pre.anext.com.sg
+www.anext.com.sg
+zhubsgbank.anext.com.sg
+zmng.pre.anext.com.sg
+
+═══════════════════════════════════════════════════════════════════════════
+  LIVE WEB URLS (25)
+═══════════════════════════════════════════════════════════════════════════
+http://cdn.anext.com.sg:1935
+https://ics.anext.com.sg
+https://ics.anext.com.sg:443
+https://redirect.anext.com.sg:443
+https://redirect.anext.com.sg
+https://zhubsgbank.anext.com.sg:443
+https://zhubsgbank.anext.com.sg
+https://secure.anext.com.sg:443
+https://secure.anext.com.sg
+https://go.anext.com.sg:443
+https://go.anext.com.sg
+https://ib.anext.com.sg:443
+https://ib.anext.com.sg
+http://cdn.anext.com.sg:80
+http://www.anext.com.sg:80
+http://anext.com.sg:80
+http://bkwordpress-public.anext.com.sg:80
+https://cdn.anext.com.sg:443
+https://cdn.anext.com.sg
+https://anext.com.sg:443
+https://anext.com.sg
+https://bkwordpress-public.anext.com.sg
+https://www.anext.com.sg
+https://www.anext.com.sg:443
+https://bkwordpress-public.anext.com.sg:443
+
+═══════════════════════════════════════════════════════════════════════════
+  STATUS CODE BREAKDOWN
+═══════════════════════════════════════════════════════════════════════════
+  Status 200 : 11 URLs
+  Status 403 : 3 URLs
+  Status 404 : 10 URLs
+
+═══════════════════════════════════════════════════════════════════════════
+  OPEN PORTS (Top 20)
+═══════════════════════════════════════════════════════════════════════════
+cdn.anext.com.sg:80
+cdn.anext.com.sg:443
+cdn.anext.com.sg:843
+cdn.anext.com.sg:1935
+go.anext.com.sg:443
+secure.anext.com.sg:443
+redirect.anext.com.sg:443
+ib.anext.com.sg:443
+zhubsgbank.anext.com.sg:443
+ics.anext.com.sg:443
+www.anext.com.sg:80
+www.anext.com.sg:443
+bkwordpress-public.anext.com.sg:443
+bkwordpress-public.anext.com.sg:80
+anext.com.sg:443
+anext.com.sg:80
+
+═══════════════════════════════════════════════════════════════════════════
+  JAVASCRIPT ANALYSIS - API ENDPOINTS
+═══════════════════════════════════════════════════════════════════════════
+No endpoints found in JavaScript files
+(Note: JS analysis may not have been run on this scan)
+
+═══════════════════════════════════════════════════════════════════════════
+  JAVASCRIPT ANALYSIS - URLS
+═══════════════════════════════════════════════════════════════════════════
+No URLs found in JavaScript files
+(Note: JS analysis may not have been run on this scan)
+
+═══════════════════════════════════════════════════════════════════════════
+  JAVASCRIPT ANALYSIS - SECRETS & API KEYS (*** HIGH PRIORITY ***)
+═══════════════════════════════════════════════════════════════════════════
+✓ No secrets found in JavaScript files
+(Note: JS analysis may not have been run on this scan)
+
+═══════════════════════════════════════════════════════════════════════════
+  JAVASCRIPT ANALYSIS - EMAIL ADDRESSES
+═══════════════════════════════════════════════════════════════════════════
+No email addresses found
+(Note: JS analysis may not have been run on this scan)
+
+═══════════════════════════════════════════════════════════════════════════
+  JAVASCRIPT ANALYSIS - INTERESTING FILES
+═══════════════════════════════════════════════════════════════════════════
+No interesting file paths found
+(Note: JS analysis may not have been run on this scan)
+
+═══════════════════════════════════════════════════════════════════════════
+  CNAME RECORDS (Potential Subdomain Takeover)
+═══════════════════════════════════════════════════════════════════════════
+Total CNAMEs: 16
+
+www.anext.com.sg [[35mCNAME[0m] [[32manext-gtm.anext.com.sg[0m] 
+redirect.anext.com.sg [[35mCNAME[0m] [[32mib-gtm.anext.com.sg[0m] 
+zhubsgbank.anext.com.sg [[35mCNAME[0m] [[32mib-gtm.anext.com.sg[0m] 
+sgservicemng.anext.com.sg [[35mCNAME[0m] [[32moffice-gtm.anext.com.sg[0m] 
+sgbkcsbenchmng.anext.com.sg [[35mCNAME[0m] [[32moffice-gtm.anext.com.sg[0m] 
+cdn.anext.com.sg [[35mCNAME[0m] [[32mcdn.anext.com.sg.w.cdngslb.com[0m] 
+anext.com.sg [[35mCNAME[0m] [[32manext-gtm.anext.com.sg[0m] 
+secure.anext.com.sg [[35mCNAME[0m] [[32mib-gtm.anext.com.sg[0m] 
+vpaasmng.anext.com.sg [[35mCNAME[0m] [[32moffice-gtm.anext.com.sg[0m] 
+onepaas.anext.com.sg [[35mCNAME[0m] [[32moffice-gtm.anext.com.sg[0m] 
+grafana.anext.com.sg [[35mCNAME[0m] [[32moffice-gtm.anext.com.sg[0m] 
+skywalking.anext.com.sg [[35mCNAME[0m] [[32moffice-gtm.anext.com.sg[0m] 
+ics.anext.com.sg [[35mCNAME[0m] [[32mics-gtm.anext.com.sg[0m] 
+bkwordpress-public.anext.com.sg [[35mCNAME[0m] [[32manext-gtm.anext.com.sg[0m] 
+telemetry.anext.com.sg [[35mCNAME[0m] [[32moffice-gtm.anext.com.sg[0m] 
+bkmng.anext.com.sg [[35mCNAME[0m] [[32moffice-gtm.anext.com.sg[0m] 
+
+═══════════════════════════════════════════════════════════════════════════
+  CRITICAL VULNERABILITIES (*** IMMEDIATE ACTION REQUIRED ***)
+═══════════════════════════════════════════════════════════════════════════
+✓ No critical vulnerabilities found
+
+═══════════════════════════════════════════════════════════════════════════
+  HIGH SEVERITY VULNERABILITIES
+═══════════════════════════════════════════════════════════════════════════
+✓ No high severity vulnerabilities found
+
+═══════════════════════════════════════════════════════════════════════════
+  VULNERABILITY SUMMARY (All Severities)
+═══════════════════════════════════════════════════════════════════════════
+
+See phase8_vulns/ for detailed vulnerability reports
+
+═══════════════════════════════════════════════════════════════════════════
+  RECOMMENDED NEXT STEPS
+═══════════════════════════════════════════════════════════════════════════
+1. Review and validate all CRITICAL and HIGH severity vulnerabilities
+2. Check for exposed secrets in phase7_content/js_secrets.txt
+3. Test CNAME records for subdomain takeover vulnerabilities
+4. Manually verify interesting API endpoints from JavaScript analysis
+5. Review open ports for unnecessary services
+6. Test discovered admin/debug/internal endpoints
+7. Analyze URLs for potential injection points
+8. Check for outdated software versions in httpx output
+
+═══════════════════════════════════════════════════════════════════════════
+  DETAILED OUTPUT LOCATIONS
+═══════════════════════════════════════════════════════════════════════════
+Master Subdomains:    master_subdomains.txt
+Live URLs:            phase6_web/live_urls.txt
+Open Ports:           phase5_ports/naabu_scan.txt
+JS Endpoints:         phase7_content/js_endpoints.txt
+JS Secrets:           phase7_content/js_secrets.txt
+Critical Vulns:       phase8_vulns/nuclei_critical.json
+High Vulns:           phase8_vulns/nuclei_high.json
+Full Summary:         report/summary.txt
+Statistics (JSON):    report/stats.json
+
+╔══════════════════════════════════════════════════════════════════════════╗
+║                         END OF CONSOLIDATED REPORT                        ║
+╚══════════════════════════════════════════════════════════════════════════╝

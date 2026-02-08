@@ -1,0 +1,68 @@
+[13:26:16] [INFO] Program: \033[1mEzviz\033[0m
+[13:26:16] [INFO] Target: \033[1mezviz.com\033[0m
+[13:26:16] [INFO] Output: /home/kujen/Bug-Bounty-Script---Web2/Ezviz/ezviz.com/2026-02-08_132616
+[13:26:16] [INFO] Threads: 50 | Rate Limit: 300
+[13:26:16] [INFO] Go: go1.24.0
+[13:26:18] [INFO] Phase 0 completed (2s)
+[13:26:18] [PHASE] Phase 1: Root Domain Intelligence
+[13:26:18] [INFO] Running WHOIS lookup...
+[13:26:18] [INFO] Running ASN enumeration...
+[13:26:19] [INFO] ASN subdomains: 0
+[13:26:19] [INFO] IP ranges discovered: 0
+[13:26:19] [INFO] Phase 1 completed (1s)
+[13:26:19] [PHASE] Phase 2: Passive Subdomain Enumeration
+[13:26:19] [INFO] Starting subfinder...
+[13:26:20] [WARN] amass not found, skipping.
+[13:26:20] [INFO] Starting crt.sh lookup...
+[13:26:20] [INFO] Starting Wayback Machine lookup...
+[13:26:20] [INFO] Starting passive API queries...
+[13:26:20] [INFO] Starting GitHub dorking...
+[13:26:20] [INFO] Waiting for 5 passive sources to complete...
+[13:26:48] [INFO]   crtsh: 10 subdomains
+[13:26:48] [INFO]   github: 9 subdomains
+[13:26:48] [INFO]   passive_apis: 20 subdomains
+[13:26:48] [INFO]   subfinder: 27 subdomains
+[13:26:48] [INFO]   wayback: 21 subdomains
+[13:26:49] [INFO] Total unique passive subdomains: \033[1m33\033[0m
+[13:26:49] [INFO] Phase 2 completed (30s)
+[13:26:49] [PHASE] Phase 3: DNS Resolution & Filtering
+[13:26:49] [INFO] Resolving 33 subdomains with puredns...
+[13:26:55] [INFO] Resolved: 27 alive subdomains
+[13:26:55] [INFO] Wildcards: 0
+[13:26:55] [INFO] Collecting DNS records with dnsx...
+[13:27:06] [INFO] CNAME records: 23
+[13:27:06] [INFO] Phase 3 completed (17s)
+[13:27:06] [PHASE] Phase 4: Active Discovery (Bruteforce + Permutations)
+[13:27:06] [INFO] Bruteforcing subdomains with puredns...
+[13:33:56] [INFO] Bruteforce found: 16 subdomains
+[13:33:56] [INFO] Generating permutations with alterx...
+[13:33:58] [INFO] Resolving 20745 permutation candidates...
+[13:35:12] [INFO] Permutations resolved: 11
+[13:35:12] [INFO] Phase 4 completed (486s)
+[13:35:12] [PHASE] Merging Master Subdomain List
+[13:35:12] [INFO] Master subdomain list: \033[1m37\033[0m unique live subdomains
+[13:35:12] [PHASE] Phase 5: Port Scanning
+[13:35:12] [INFO] Scanning ports on 37 hosts with naabu...
+[13:39:31] [INFO] Open ports found: 468 host:port entries
+[13:39:31] [INFO] Hosts with open ports: 33
+[13:39:31] [INFO] Phase 5 completed (259s)
+[13:39:31] [PHASE] Phase 6: Web Probing
+[13:39:31] [INFO] Probing 505 targets with httpx...
+[13:39:33] [INFO] Web assets found: 0
+[13:39:33] [INFO] Phase 6 completed (2s)
+[13:39:33] [PHASE] Phase 7: Content Discovery
+[13:39:33] [WARN] No live URLs for content discovery.
+[13:39:33] [WARN] Phase 7 finished with issues (0s)
+[13:39:33] [PHASE] Phase 8: Vulnerability Scanning
+[13:39:33] [WARN] No live URLs for vulnerability scanning.
+[13:39:33] [WARN] Phase 8 finished with issues (0s)
+[13:39:33] [PHASE] Phase 9: Certstream Monitor (Background)
+[13:39:34] [WARN] websocket-client not installed. Installing...
+[13:39:34] [WARN] Could not install websocket-client. Skipping certstream.
+[13:39:34] [WARN] Phase 9 finished with issues (1s)
+[13:39:34] [PHASE] Phase 10: Reporting & Summary
+[13:39:34] [INFO] Generating consolidated domain report...
+[13:39:34] [INFO] Consolidated report saved: \033[1mezviz.com_consolidated_report.txt\033[0m
+[13:39:34] [INFO] Full path: /home/kujen/Bug-Bounty-Script---Web2/Ezviz/ezviz.com/2026-02-08_132616/ezviz.com_consolidated_report.txt
+[13:39:34] [INFO] Phase 10 completed (0s)
+[13:39:34] [INFO] All phases complete for ezviz.com. Results in: \033[1m/home/kujen/Bug-Bounty-Script---Web2/Ezviz/ezviz.com/2026-02-08_132616\033[0m

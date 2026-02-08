@@ -1,0 +1,55 @@
+==============================================
+  BEAST MODE RECON - SUMMARY REPORT
+==============================================
+
+Program:    Ezviz
+Target:     ezviz.com
+Date:       2026-02-08 13:39:34
+Output Dir: /home/kujen/Bug-Bounty-Script---Web2/Ezviz/ezviz.com/2026-02-08_132616
+
+----------------------------------------------
+  SUBDOMAIN COUNTS
+----------------------------------------------
+Passive sources:
+  subfinder:           27
+  crtsh:               10
+  wayback:             21
+  passive_apis:        20
+  github:              9
+
+Merged passive:      33
+Resolved (alive):    27
+Bruteforce:          16
+Permutations:        11
+MASTER TOTAL:        37
+
+----------------------------------------------
+  INFRASTRUCTURE
+----------------------------------------------
+IP ranges (ASN):     0
+Open ports (naabu):  468
+Web assets (httpx):  0
+
+----------------------------------------------
+  CONTENT & VULNS
+----------------------------------------------
+URLs discovered:     0
+JS files:            0
+Nuclei findings:     0
+
+----------------------------------------------
+  PHASE STATUS
+----------------------------------------------
+  Phase 0 : OK
+  Phase 1 : OK
+  Phase 2 : OK
+  Phase 3 : OK
+  Phase 4 : OK
+  Phase 5 : OK
+  Phase 6 : OK
+  Phase 7 : FAIL
+  Phase 8 : FAIL
+  Phase 9 : FAIL
+  Phase 10: OK
+
+==============================================

@@ -1,0 +1,68 @@
+[12:49:04] [INFO] Program: \033[1mplatacard.mx\033[0m
+[12:49:04] [INFO] Target: \033[1mplatacard.mx\033[0m
+[12:49:04] [INFO] Output: /home/kujen/Bug-Bounty-Script---Web2/platacard.mx/platacard.mx/2026-02-08_124904
+[12:49:04] [INFO] Threads: 50 | Rate Limit: 300
+[12:49:05] [INFO] Go: go1.24.0
+[12:49:05] [INFO] Phase 0 completed (1s)
+[12:49:05] [PHASE] Phase 1: Root Domain Intelligence
+[12:49:05] [INFO] Running WHOIS lookup...
+[12:49:05] [INFO] Running ASN enumeration...
+[12:49:07] [INFO] ASN subdomains: 0
+[12:49:07] [INFO] IP ranges discovered: 0
+[12:49:07] [INFO] Phase 1 completed (2s)
+[12:49:07] [PHASE] Phase 2: Passive Subdomain Enumeration
+[12:49:07] [INFO] Starting subfinder...
+[12:49:07] [WARN] amass not found, skipping.
+[12:49:07] [INFO] Starting crt.sh lookup...
+[12:49:07] [INFO] Starting Wayback Machine lookup...
+[12:49:07] [INFO] Starting passive API queries...
+[12:49:07] [INFO] Starting GitHub dorking...
+[12:49:07] [INFO] Waiting for 5 passive sources to complete...
+[12:49:27] [INFO]   crtsh: 54 subdomains
+[12:49:27] [INFO]   github: 14 subdomains
+[12:49:27] [INFO]   passive_apis: 38 subdomains
+[12:49:27] [INFO]   subfinder: 53 subdomains
+[12:49:27] [INFO]   wayback: 27 subdomains
+[12:49:27] [INFO] Total unique passive subdomains: \033[1m54\033[0m
+[12:49:27] [INFO] Phase 2 completed (20s)
+[12:49:27] [PHASE] Phase 3: DNS Resolution & Filtering
+[12:49:27] [INFO] Resolving 54 subdomains with puredns...
+[12:49:30] [INFO] Resolved: 44 alive subdomains
+[12:49:30] [INFO] Wildcards: 0
+[12:49:31] [INFO] Collecting DNS records with dnsx...
+[12:49:39] [INFO] CNAME records: 15
+[12:49:39] [INFO] Phase 3 completed (12s)
+[12:49:39] [PHASE] Phase 4: Active Discovery (Bruteforce + Permutations)
+[12:49:39] [INFO] Bruteforcing subdomains with puredns...
+[12:56:27] [INFO] Bruteforce found: 14 subdomains
+[12:56:27] [INFO] Generating permutations with alterx...
+[12:56:28] [INFO] Resolving 25645 permutation candidates...
+[12:57:59] [INFO] Permutations resolved: 11
+[12:57:59] [INFO] Phase 4 completed (500s)
+[12:57:59] [PHASE] Merging Master Subdomain List
+[12:57:59] [INFO] Master subdomain list: \033[1m45\033[0m unique live subdomains
+[12:57:59] [PHASE] Phase 5: Port Scanning
+[12:57:59] [INFO] Scanning ports on 45 hosts with naabu...
+[13:00:57] [INFO] Open ports found: 120 host:port entries
+[13:00:57] [INFO] Hosts with open ports: 35
+[13:00:57] [INFO] Phase 5 completed (178s)
+[13:00:57] [PHASE] Phase 6: Web Probing
+[13:00:57] [INFO] Probing 165 targets with httpx...
+[13:01:00] [INFO] Web assets found: 0
+[13:01:00] [INFO] Phase 6 completed (3s)
+[13:01:00] [PHASE] Phase 7: Content Discovery
+[13:01:00] [WARN] No live URLs for content discovery.
+[13:01:00] [WARN] Phase 7 finished with issues (0s)
+[13:01:00] [PHASE] Phase 8: Vulnerability Scanning
+[13:01:00] [WARN] No live URLs for vulnerability scanning.
+[13:01:00] [WARN] Phase 8 finished with issues (0s)
+[13:01:00] [PHASE] Phase 9: Certstream Monitor (Background)
+[13:01:00] [WARN] websocket-client not installed. Installing...
+[13:01:01] [WARN] Could not install websocket-client. Skipping certstream.
+[13:01:01] [WARN] Phase 9 finished with issues (1s)
+[13:01:01] [PHASE] Phase 10: Reporting & Summary
+[13:01:01] [INFO] Generating consolidated domain report...
+[13:01:01] [INFO] Consolidated report saved: \033[1mplatacard.mx_consolidated_report.txt\033[0m
+[13:01:01] [INFO] Full path: /home/kujen/Bug-Bounty-Script---Web2/platacard.mx/platacard.mx/2026-02-08_124904/platacard.mx_consolidated_report.txt
+[13:01:01] [INFO] Phase 10 completed (0s)
+[13:01:01] [INFO] All phases complete for platacard.mx. Results in: \033[1m/home/kujen/Bug-Bounty-Script---Web2/platacard.mx/platacard.mx/2026-02-08_124904\033[0m

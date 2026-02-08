@@ -1,0 +1,4 @@
+[asn] platacard.mx -> 104.18.5.41
+[asn] ASN info: [{'ip': '"104.18.5.41"', 'asn': '"13335"', 'org': '"104.18.0.0/20"'}]
+[asn] Prefix lookup error for "13335": HTTPSConnectionPool(host='api.bgpview.io', port=443): Max retries exceeded with url: /asn/%2213335%22/prefixes (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7d5bf27c21b0>: Failed to resolve 'api.bgpview.io' ([Errno -2] Name or service not known)"))
+[asn] "13335" announces 0 prefixes

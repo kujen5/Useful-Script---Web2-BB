@@ -1,0 +1,339 @@
+╔══════════════════════════════════════════════════════════════════════════╗
+║                    CONSOLIDATED RECONNAISSANCE REPORT                     ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+═══════════════════════════════════════════════════════════════════════════
+  BASIC INFORMATION
+═══════════════════════════════════════════════════════════════════════════
+Program:          ant-group-security-response-center
+Target Domain:    alipayplus.com
+Scan Date:        2026-02-05 165522
+Output Directory: /home/kujen/Bug-Bounty-Script---Web2/ant-group-security-response-center/alipayplus.com/2026-02-05_165522
+
+═══════════════════════════════════════════════════════════════════════════
+  DISCOVERY SUMMARY
+═══════════════════════════════════════════════════════════════════════════
+Total Subdomains:     161
+Live Web Assets:      692
+Open Ports:           48612
+URLs Discovered:      4146
+JS Files Analyzed:    885
+Vulnerabilities:      0
+
+═══════════════════════════════════════════════════════════════════════════
+  ASN INFORMATION
+═══════════════════════════════════════════════════════════════════════════
+ASN Number:       N/A
+ASN Name:         N/A
+ASN Description:  N/A
+IP Ranges:        0 CIDR blocks
+
+═══════════════════════════════════════════════════════════════════════════
+  ALL DISCOVERED SUBDOMAINS (161)
+═══════════════════════════════════════════════════════════════════════════
+ifcidentitycloudqk.alipay.com
+aboss.cloud.sgp.alipayplus.com
+acceptance-mark.alipayplus.com
+acis-testa.alipayplus.com
+admin.alipayplus.com
+aig-acis-sg.alipayplus.com
+alipayplus.com
+alipayplusmock.alipayplus.com
+almpmng-pre.alipayplus.com
+api-eu-global.alipayplus.com
+api-na-global.alipayplus.com
+api-sea-global.alipayplus.com
+asap-portal.alipayplus.com
+asap.alipayplus.com
+auth.cloud.sgp.alipayplus.com
+avatar.alipayplus.com
+bot.alipayplus.com
+canary.alipayplus.com
+cdn.alipayplus.com
+chichasanchen.ds.alipayplus.com
+connect-api.alipayplus.com
+connect-next.alipayplus.com
+connect-pre.alipayplus.com
+connect-us-api.alipayplus.com
+connect-us.alipayplus.com
+connect.alipayplus.com
+console-ds-pre.alipayplus.com
+console-ds.alipayplus.com
+console-sim.alipayplus.com
+console.ds.alipayplus.com
+daiweitest-sg.alipayplus.com
+developers.alipayplus.com
+docs-beta.alipayplus.com
+docs.alipayplus.com
+ds-pre.alipayplus.com
+ds.alipayplus.com
+easypoint.alipayplus.com
+ep-cockpit.alipayplus.com
+f-and-b.alipayplus.com
+fcbuservicesg.alipayplus.com
+g.alipayplus.com
+gapdataopermng.alipayplus.com
+gcash-miniprogram-sim.alipayplus.com
+gfcifim.alipayplus.com
+global-acis-sg.alipayplus.com
+gmportal-pre.alipayplus.com
+gmportal.alipayplus.com
+gongchaph.ds.alipayplus.com
+growth.alipayplus.com
+h5.paytech.alipayplus.com
+habo.alipayplus.com
+hebrewsshebrews.ds.alipayplus.com
+iacportal.alipayplus.com
+iantdat.alipayplus.com
+ibot-pre.alipayplus.com
+ibotservice-pre.alipayplus.com
+ibotservice.alipayplus.com
+ics-global.alipayplus.com
+idatabankmng-sim.alipayplus.com
+ifcriskmatrix.alipayplus.com
+ilmmng-pre.alipayplus.com
+ilmmng.alipayplus.com
+ilog-region-mandiri.alipayplus.com
+ilog-sea-aliyun.alipayplus.com
+ilog-sea-aliyun.test.alipayplus.com
+imgs-sea-global.alipayplus.com
+impprod-sim.alipayplus.com
+isectestuse.alipayplus.com
+isftp-sea.alipayplus.com
+islandteaco.ds.alipayplus.com
+iticketcenter.alipayplus.com
+ivguserprod.alipayplus.com
+iwork.alipayplus.com
+koithe.ds.alipayplus.com
+legal.alipayplus.com
+lmp.alipayplus.com
+lmpmng.alipayplus.com
+luoxuan-test.os30.alipayplus.com
+merchant-console-pre.alipayplus.com
+merchant-console.alipayplus.com
+mgs-region-chope.alipayplus.com
+mgs-region-claro.alipayplus.com
+mgs-region-demo.alipayplus.com
+mgs-region-epon-sandbox.alipayplus.com
+mgs-region-gcash-sandbox.alipayplus.com
+mgs-region-gcash.alipayplus.com
+mgs-region-mandiri-gray.alipayplus.com
+mgs-region-mandiri-perf.alipayplus.com
+mgs-region-mandiri.alipayplus.com
+mgs-region-poc.alipayplus.com
+mgs-region-pre.alipayplus.com
+mgs-region-tngd-sandbox.alipayplus.com
+mgs-region-tngd.alipayplus.com
+mgs-region.alipayplus.com
+miniprogram-console-pre.alipayplus.com
+miniprogram.alipayplus.com
+mpaasgw.paytech.alipayplus.com
+online-mpc.alipayplus.com
+open-bplus.alipayplus.com
+open-cn2sg.alipayplus.com
+
+... and 61 more subdomains
+(See master_subdomains.txt for full list)
+
+═══════════════════════════════════════════════════════════════════════════
+  LIVE WEB URLS (692)
+═══════════════════════════════════════════════════════════════════════════
+https://aig-acis-sg.alipayplus.com
+https://acceptance-mark.alipayplus.com:443
+https://aig-acis-sg.alipayplus.com:1443
+http://acceptance-mark.alipayplus.com:80
+https://acceptance-mark.alipayplus.com
+http://acceptance-mark.alipayplus.com:1935
+http://admin.alipayplus.com:443
+https://aig-acis-sg.alipayplus.com:443
+http://admin.alipayplus.com:80
+http://admin.alipayplus.com
+https://aig-acis-sg.alipayplus.com:8080
+https://aig-acis-sg.alipayplus.com:80
+https://aig-acis-sg.alipayplus.com:8090
+https://aig-acis-sg.alipayplus.com:81
+http://canary.alipayplus.com:80
+http://canary.alipayplus.com:1935
+https://aig-acis-sg.alipayplus.com:9000
+https://canary.alipayplus.com:443
+https://canary.alipayplus.com
+http://cdn.alipayplus.com:1935
+http://asap-portal.alipayplus.com:1935
+http://bot.alipayplus.com:1935
+http://cdn.alipayplus.com:80
+https://cdn.alipayplus.com:443
+https://cdn.alipayplus.com
+http://avatar.alipayplus.com:80
+https://avatar.alipayplus.com:443
+https://avatar.alipayplus.com
+http://asap.alipayplus.com:80
+http://asap-portal.alipayplus.com:80
+https://asap-portal.alipayplus.com
+https://asap-portal.alipayplus.com:443
+http://api-sea-global.alipayplus.com:80
+https://asap.alipayplus.com:443
+https://asap.alipayplus.com
+https://chichasanchen.ds.alipayplus.com
+https://api-sea-global.alipayplus.com:443
+https://api-sea-global.alipayplus.com
+http://api-na-global.alipayplus.com:80
+http://api-eu-global.alipayplus.com:80
+http://bot.alipayplus.com:80
+https://api-na-global.alipayplus.com
+https://chichasanchen.ds.alipayplus.com:1443
+https://bot.alipayplus.com:443
+https://bot.alipayplus.com
+https://api-na-global.alipayplus.com:443
+https://api-eu-global.alipayplus.com:443
+https://api-eu-global.alipayplus.com
+http://alipayplus.com:80
+https://alipayplus.com:443
+
+... and 642 more URLs
+(See phase6_web/live_urls.txt for full list)
+
+═══════════════════════════════════════════════════════════════════════════
+  STATUS CODE BREAKDOWN
+═══════════════════════════════════════════════════════════════════════════
+  Status 200 : 274 URLs
+  Status 403 : 13 URLs
+  Status 404 : 68 URLs
+
+═══════════════════════════════════════════════════════════════════════════
+  OPEN PORTS (Top 20)
+═══════════════════════════════════════════════════════════════════════════
+asap-portal.alipayplus.com:1935
+asap-portal.alipayplus.com:443
+asap-portal.alipayplus.com:80
+asap-portal.alipayplus.com:843
+acceptance-mark.alipayplus.com:1935
+acceptance-mark.alipayplus.com:443
+acceptance-mark.alipayplus.com:80
+acceptance-mark.alipayplus.com:843
+connect-us-api.alipayplus.com:443
+connect-us-api.alipayplus.com:80
+avatar.alipayplus.com:80
+avatar.alipayplus.com:443
+connect.alipayplus.com:80
+connect.alipayplus.com:443
+docs-beta.alipayplus.com:80
+docs-beta.alipayplus.com:443
+ics-global.alipayplus.com:80
+ics-global.alipayplus.com:443
+isectestuse.alipayplus.com:80
+isectestuse.alipayplus.com:443
+... and 48592 more open ports
+(See phase5_ports/naabu_scan.txt for full list)
+
+═══════════════════════════════════════════════════════════════════════════
+  JAVASCRIPT ANALYSIS - API ENDPOINTS
+═══════════════════════════════════════════════════════════════════════════
+No endpoints found in JavaScript files
+(Note: JS analysis may not have been run on this scan)
+
+═══════════════════════════════════════════════════════════════════════════
+  JAVASCRIPT ANALYSIS - URLS
+═══════════════════════════════════════════════════════════════════════════
+No URLs found in JavaScript files
+(Note: JS analysis may not have been run on this scan)
+
+═══════════════════════════════════════════════════════════════════════════
+  JAVASCRIPT ANALYSIS - SECRETS & API KEYS (*** HIGH PRIORITY ***)
+═══════════════════════════════════════════════════════════════════════════
+✓ No secrets found in JavaScript files
+(Note: JS analysis may not have been run on this scan)
+
+═══════════════════════════════════════════════════════════════════════════
+  JAVASCRIPT ANALYSIS - EMAIL ADDRESSES
+═══════════════════════════════════════════════════════════════════════════
+No email addresses found
+(Note: JS analysis may not have been run on this scan)
+
+═══════════════════════════════════════════════════════════════════════════
+  JAVASCRIPT ANALYSIS - INTERESTING FILES
+═══════════════════════════════════════════════════════════════════════════
+No interesting file paths found
+(Note: JS analysis may not have been run on this scan)
+
+═══════════════════════════════════════════════════════════════════════════
+  CNAME RECORDS (Potential Subdomain Takeover)
+═══════════════════════════════════════════════════════════════════════════
+Total CNAMEs: 168
+
+connect-us.alipayplus.com [[35mCNAME[0m] [[32mgz-rr2.internet-intl.spanner.alipaydns.com[0m] 
+developers.alipayplus.com [[35mCNAME[0m] [[32msg.rr2.internet-intl.spanner.alipaydns.com[0m] 
+admin.alipayplus.com [[35mCNAME[0m] [[32mgz-rr2.internet.spanner.alipaydns.com[0m] 
+habo.alipayplus.com [[35mCNAME[0m] [[32msg.rr2.office-intl.spanner.alipaydns.com[0m] 
+api-na-global.alipayplus.com [[35mCNAME[0m] [[32mglobal-na-inner.alipaydns.com[0m] 
+api-na-global.alipayplus.com [[35mCNAME[0m] [[32msh-na-inner.alipaydns.com[0m] 
+api-na-global.alipayplus.com [[35mCNAME[0m] [[32msh-inner-vips.alipaydns.com[0m] 
+api-na-global.alipayplus.com [[35mCNAME[0m] [[32msg-na-inner.alipaydns.com[0m] 
+api-na-global.alipayplus.com [[35mCNAME[0m] [[32msg-inner-vips.alipaydns.com[0m] 
+connect.alipayplus.com [[35mCNAME[0m] [[32msg.rr2.internet-intl.spanner.alipaydns.com[0m] 
+docs.alipayplus.com [[35mCNAME[0m] [[32msg.rr2.internet-intl.spanner.alipaydns.com[0m] 
+aig-acis-sg.alipayplus.com [[35mCNAME[0m] [[32mxbvtfs2eujvciycowiyvxynf6bddjvj6.aliyunwaf5.com[0m] 
+easypoint.alipayplus.com [[35mCNAME[0m] [[32measypoint.alipayplus.com.e.aliyunwaf.com[0m] 
+connect-next.alipayplus.com [[35mCNAME[0m] [[32msg.rr2.internet-intl.spanner.alipaydns.com[0m] 
+ep-cockpit.alipayplus.com [[35mCNAME[0m] [[32mep-cockpit.alipayplus.com.w.cdngslb.com[0m] 
+gcash-miniprogram-sim.alipayplus.com [[35mCNAME[0m] [[32msg.sim-rr2.office-intl.spanner.alipaydns.com[0m] 
+h5.paytech.alipayplus.com [[35mCNAME[0m] [[32madw-h5.oss-cn-hzfinance.aliyuncs.com[0m] 
+console-ds.alipayplus.com [[35mCNAME[0m] [[32mxr4tyfknmcjayvnod1gmr4hhjji6biw8.aliyunwaf2.com[0m] 
+console-ds.alipayplus.com [[35mCNAME[0m] [[32mgtm-cn-tl32mf82p07.gtm-a4b8.com[0m] 
+almpmng-pre.alipayplus.com [[35mCNAME[0m] [[32msg-pre.office-intl.spanner.alipaydns.com[0m] 
+iacportal.alipayplus.com [[35mCNAME[0m] [[32msg.rr2.internet-intl.spanner.alipaydns.com[0m] 
+api-eu-global.alipayplus.com [[35mCNAME[0m] [[32mglobal-na-inner.alipaydns.com[0m] 
+api-eu-global.alipayplus.com [[35mCNAME[0m] [[32msg-na-inner.alipaydns.com[0m] 
+api-eu-global.alipayplus.com [[35mCNAME[0m] [[32msg-inner-vips.alipaydns.com[0m] 
+avatar.alipayplus.com [[35mCNAME[0m] [[32msg.rr2.internet-intl.spanner.alipaydns.com[0m] 
+docs-beta.alipayplus.com [[35mCNAME[0m] [[32msg.rr2.internet-intl.spanner.alipaydns.com[0m] 
+f-and-b.alipayplus.com [[35mCNAME[0m] [[32mq2qtk3llextedzmddktu8g0f7hw5emks.yundunwaf2.com[0m] 
+acis-testa.alipayplus.com [[35mCNAME[0m] [[32malb-ekh6fs91me6wmtctgw.cn-hangzhou.alb.aliyuncs.com[0m] 
+gongchaph.ds.alipayplus.com [[35mCNAME[0m] [[32md0mtyelpuesymhxrrtxnwji4sgtnzynk.aliyunwaf3.com[0m] 
+connect-us-api.alipayplus.com [[35mCNAME[0m] [[32mgz-rr2.internet-tbiz.spanner.antus-inc.com[0m] 
+... and 138 more CNAMEs
+(See phase3_dns/cnames.txt for full list)
+
+═══════════════════════════════════════════════════════════════════════════
+  CRITICAL VULNERABILITIES (*** IMMEDIATE ACTION REQUIRED ***)
+═══════════════════════════════════════════════════════════════════════════
+✓ No critical vulnerabilities found
+
+═══════════════════════════════════════════════════════════════════════════
+  HIGH SEVERITY VULNERABILITIES
+═══════════════════════════════════════════════════════════════════════════
+✓ No high severity vulnerabilities found
+
+═══════════════════════════════════════════════════════════════════════════
+  VULNERABILITY SUMMARY (All Severities)
+═══════════════════════════════════════════════════════════════════════════
+
+See phase8_vulns/ for detailed vulnerability reports
+
+═══════════════════════════════════════════════════════════════════════════
+  RECOMMENDED NEXT STEPS
+═══════════════════════════════════════════════════════════════════════════
+1. Review and validate all CRITICAL and HIGH severity vulnerabilities
+2. Check for exposed secrets in phase7_content/js_secrets.txt
+3. Test CNAME records for subdomain takeover vulnerabilities
+4. Manually verify interesting API endpoints from JavaScript analysis
+5. Review open ports for unnecessary services
+6. Test discovered admin/debug/internal endpoints
+7. Analyze URLs for potential injection points
+8. Check for outdated software versions in httpx output
+
+═══════════════════════════════════════════════════════════════════════════
+  DETAILED OUTPUT LOCATIONS
+═══════════════════════════════════════════════════════════════════════════
+Master Subdomains:    master_subdomains.txt
+Live URLs:            phase6_web/live_urls.txt
+Open Ports:           phase5_ports/naabu_scan.txt
+JS Endpoints:         phase7_content/js_endpoints.txt
+JS Secrets:           phase7_content/js_secrets.txt
+Critical Vulns:       phase8_vulns/nuclei_critical.json
+High Vulns:           phase8_vulns/nuclei_high.json
+Full Summary:         report/summary.txt
+Statistics (JSON):    report/stats.json
+
+╔══════════════════════════════════════════════════════════════════════════╗
+║                         END OF CONSOLIDATED REPORT                        ║
+╚══════════════════════════════════════════════════════════════════════════╝

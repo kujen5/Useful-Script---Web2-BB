@@ -1,0 +1,16 @@
+{
+  "program": "Ezviz",
+  "domain": "ezviz.com",
+  "output_dir": "/home/kujen/Bug-Bounty-Script---Web2/Ezviz/ezviz.com/2026-02-08_132616",
+  "counts": {
+    "passive_merged": 33,
+    "resolved": 27,
+    "bruteforce": 16,
+    "permutations": 11,
+    "master": 37,
+    "ports": 468,
+    "web_assets": 0,
+    "urls": 0,
+    "nuclei": 0
+  }
+}

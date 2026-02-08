@@ -1,0 +1,1 @@
+[[1;31mFTL[0m] Could not create httpx instance: could not create cdn check: Get "https://cdn.nuclei.sh": dial tcp: lookup cdn.nuclei.sh on 10.255.255.254:53: no such host

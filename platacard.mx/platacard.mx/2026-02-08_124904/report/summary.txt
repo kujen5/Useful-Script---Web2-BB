@@ -1,0 +1,55 @@
+==============================================
+  BEAST MODE RECON - SUMMARY REPORT
+==============================================
+
+Program:    platacard.mx
+Target:     platacard.mx
+Date:       2026-02-08 13:01:01
+Output Dir: /home/kujen/Bug-Bounty-Script---Web2/platacard.mx/platacard.mx/2026-02-08_124904
+
+----------------------------------------------
+  SUBDOMAIN COUNTS
+----------------------------------------------
+Passive sources:
+  subfinder:           53
+  crtsh:               54
+  wayback:             27
+  passive_apis:        38
+  github:              14
+
+Merged passive:      54
+Resolved (alive):    44
+Bruteforce:          14
+Permutations:        11
+MASTER TOTAL:        45
+
+----------------------------------------------
+  INFRASTRUCTURE
+----------------------------------------------
+IP ranges (ASN):     0
+Open ports (naabu):  120
+Web assets (httpx):  0
+
+----------------------------------------------
+  CONTENT & VULNS
+----------------------------------------------
+URLs discovered:     0
+JS files:            0
+Nuclei findings:     0
+
+----------------------------------------------
+  PHASE STATUS
+----------------------------------------------
+  Phase 0 : OK
+  Phase 1 : OK
+  Phase 2 : OK
+  Phase 3 : OK
+  Phase 4 : OK
+  Phase 5 : OK
+  Phase 6 : OK
+  Phase 7 : FAIL
+  Phase 8 : FAIL
+  Phase 9 : FAIL
+  Phase 10: OK
+
+==============================================

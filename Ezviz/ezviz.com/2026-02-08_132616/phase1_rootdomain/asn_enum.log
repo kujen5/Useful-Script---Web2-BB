@@ -1,0 +1,4 @@
+[asn] ezviz.com -> 112.17.34.191
+[asn] ASN info: [{'ip': '"112.17.34.191"', 'asn': '"56041"', 'org': '"112.17.32.0/22"'}]
+[asn] Prefix lookup error for "56041": HTTPSConnectionPool(host='api.bgpview.io', port=443): Max retries exceeded with url: /asn/%2256041%22/prefixes (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x741993cf6ed0>: Failed to resolve 'api.bgpview.io' ([Errno -2] Name or service not known)"))
+[asn] "56041" announces 0 prefixes

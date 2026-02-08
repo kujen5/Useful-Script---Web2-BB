@@ -1,0 +1,14 @@
+jira.platacard.mx
+career.platacard.mx
+sandbox.platacard.mx
+prime.platacard.mx
+www.platacard.mx
+event.platacard.mx
+plataforma.platacard.mx
+design.platacard.mx
+pay.platacard.mx
+sso.platacard.mx
+beta.platacard.mx
+banco.platacard.mx
+tracking.platacard.mx
+www-beta.platacard.mx

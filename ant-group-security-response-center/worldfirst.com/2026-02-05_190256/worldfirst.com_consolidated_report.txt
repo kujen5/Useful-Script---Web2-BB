@@ -1,0 +1,229 @@
+╔══════════════════════════════════════════════════════════════════════════╗
+║                    CONSOLIDATED RECONNAISSANCE REPORT                     ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+═══════════════════════════════════════════════════════════════════════════
+  BASIC INFORMATION
+═══════════════════════════════════════════════════════════════════════════
+Program:          ant-group-security-response-center
+Target Domain:    worldfirst.com
+Scan Date:        2026-02-05 190256
+Output Directory: /home/kujen/Bug-Bounty-Script---Web2/ant-group-security-response-center/worldfirst.com/2026-02-05_190256
+
+═══════════════════════════════════════════════════════════════════════════
+  DISCOVERY SUMMARY
+═══════════════════════════════════════════════════════════════════════════
+Total Subdomains:     26
+Live Web Assets:      84
+Open Ports:           68
+URLs Discovered:      49119
+JS Files Analyzed:    6280
+Vulnerabilities:      0
+
+═══════════════════════════════════════════════════════════════════════════
+  ASN INFORMATION
+═══════════════════════════════════════════════════════════════════════════
+ASN Number:       N/A
+ASN Name:         N/A
+ASN Description:  N/A
+IP Ranges:        0 CIDR blocks
+
+═══════════════════════════════════════════════════════════════════════════
+  ALL DISCOVERED SUBDOMAINS (26)
+═══════════════════════════════════════════════════════════════════════════
+autodiscover.mail.worldfirst.com
+autodiscover.service.worldfirst.com
+autodiscover.worldfirst.com
+campaign.worldfirst.com
+communications.worldfirst.com
+dev.worldfirst.com
+developers.worldfirst.com
+explore.worldfirst.com
+fs.worldfirst.com
+handbook.worldfirst.com
+image.worldfirst.com
+imgs.worldfirst.com
+m.worldfirst.com
+office365.worldfirst.com
+oia.worldfirst.com
+page.worldfirst.com
+portal-api.worldfirst.com
+portal.worldfirst.com
+render.worldfirst.com
+s.worldfirst.com
+trading.worldfirst.com
+treasure.worldfirst.com
+web.worldfirst.com
+www-cdn.worldfirst.com
+www.treasure.worldfirst.com
+www.worldfirst.com
+
+═══════════════════════════════════════════════════════════════════════════
+  LIVE WEB URLS (84)
+═══════════════════════════════════════════════════════════════════════════
+http://m.worldfirst.com:1935
+https://communications.worldfirst.com:8443
+http://page.worldfirst.com:8080
+http://office365.worldfirst.com:1935
+https://page.worldfirst.com:8443
+http://image.worldfirst.com
+http://campaign.worldfirst.com:8080
+http://m.worldfirst.com:80
+http://oia.worldfirst.com:80
+https://m.worldfirst.com:443
+http://communications.worldfirst.com:8080
+https://m.worldfirst.com
+http://autodiscover.service.worldfirst.com:80
+http://autodiscover.service.worldfirst.com
+http://autodiscover.mail.worldfirst.com
+http://autodiscover.worldfirst.com
+http://autodiscover.worldfirst.com:80
+http://autodiscover.mail.worldfirst.com:80
+http://explore.worldfirst.com:80
+http://communications.worldfirst.com:80
+https://explore.worldfirst.com:443
+https://explore.worldfirst.com
+https://handbook.worldfirst.com
+http://handbook.worldfirst.com:80
+https://communications.worldfirst.com:443
+https://communications.worldfirst.com
+https://handbook.worldfirst.com:443
+https://render.worldfirst.com
+https://render.worldfirst.com:443
+http://office365.worldfirst.com:80
+https://campaign.worldfirst.com:8443
+http://web.worldfirst.com:1935
+https://office365.worldfirst.com
+https://office365.worldfirst.com:443
+https://oia.worldfirst.com
+http://campaign.worldfirst.com:80
+http://www-cdn.worldfirst.com:8080
+https://oia.worldfirst.com:443
+http://www.treasure.worldfirst.com:8443
+http://www.treasure.worldfirst.com:8080
+https://www-cdn.worldfirst.com:8443
+http://www.treasure.worldfirst.com:443
+https://treasure.worldfirst.com
+http://portal-api.worldfirst.com:80
+https://campaign.worldfirst.com:443
+https://campaign.worldfirst.com
+http://developers.worldfirst.com:80
+http://fs.worldfirst.com:80
+https://developers.worldfirst.com:443
+https://developers.worldfirst.com
+
+... and 34 more URLs
+(See phase6_web/live_urls.txt for full list)
+
+═══════════════════════════════════════════════════════════════════════════
+  STATUS CODE BREAKDOWN
+═══════════════════════════════════════════════════════════════════════════
+  Status 200 : 43 URLs
+  Status 403 : 15 URLs
+  Status 404 : 9 URLs
+
+═══════════════════════════════════════════════════════════════════════════
+  OPEN PORTS (Top 20)
+═══════════════════════════════════════════════════════════════════════════
+autodiscover.worldfirst.com:80
+s.worldfirst.com:80
+s.worldfirst.com:443
+s.worldfirst.com:8080
+s.worldfirst.com:8443
+developers.worldfirst.com:443
+developers.worldfirst.com:80
+render.worldfirst.com:80
+render.worldfirst.com:443
+page.worldfirst.com:8443
+page.worldfirst.com:80
+page.worldfirst.com:443
+page.worldfirst.com:8080
+www.worldfirst.com:8443
+www.worldfirst.com:80
+www.worldfirst.com:443
+www.worldfirst.com:8080
+trading.worldfirst.com:8443
+trading.worldfirst.com:80
+trading.worldfirst.com:443
+... and 48 more open ports
+(See phase5_ports/naabu_scan.txt for full list)
+
+═══════════════════════════════════════════════════════════════════════════
+  JAVASCRIPT ANALYSIS - API ENDPOINTS
+═══════════════════════════════════════════════════════════════════════════
+No endpoints found in JavaScript files
+(Note: JS analysis may not have been run on this scan)
+
+═══════════════════════════════════════════════════════════════════════════
+  JAVASCRIPT ANALYSIS - URLS
+═══════════════════════════════════════════════════════════════════════════
+No URLs found in JavaScript files
+(Note: JS analysis may not have been run on this scan)
+
+═══════════════════════════════════════════════════════════════════════════
+  JAVASCRIPT ANALYSIS - SECRETS & API KEYS (*** HIGH PRIORITY ***)
+═══════════════════════════════════════════════════════════════════════════
+✓ No secrets found in JavaScript files
+(Note: JS analysis may not have been run on this scan)
+
+═══════════════════════════════════════════════════════════════════════════
+  JAVASCRIPT ANALYSIS - EMAIL ADDRESSES
+═══════════════════════════════════════════════════════════════════════════
+No email addresses found
+(Note: JS analysis may not have been run on this scan)
+
+═══════════════════════════════════════════════════════════════════════════
+  JAVASCRIPT ANALYSIS - INTERESTING FILES
+═══════════════════════════════════════════════════════════════════════════
+No interesting file paths found
+(Note: JS analysis may not have been run on this scan)
+
+═══════════════════════════════════════════════════════════════════════════
+  CNAME RECORDS (Potential Subdomain Takeover)
+═══════════════════════════════════════════════════════════════════════════
+No CNAME records found
+
+═══════════════════════════════════════════════════════════════════════════
+  CRITICAL VULNERABILITIES (*** IMMEDIATE ACTION REQUIRED ***)
+═══════════════════════════════════════════════════════════════════════════
+✓ No critical vulnerabilities found
+
+═══════════════════════════════════════════════════════════════════════════
+  HIGH SEVERITY VULNERABILITIES
+═══════════════════════════════════════════════════════════════════════════
+✓ No high severity vulnerabilities found
+
+═══════════════════════════════════════════════════════════════════════════
+  VULNERABILITY SUMMARY (All Severities)
+═══════════════════════════════════════════════════════════════════════════
+
+See phase8_vulns/ for detailed vulnerability reports
+
+═══════════════════════════════════════════════════════════════════════════
+  RECOMMENDED NEXT STEPS
+═══════════════════════════════════════════════════════════════════════════
+1. Review and validate all CRITICAL and HIGH severity vulnerabilities
+2. Check for exposed secrets in phase7_content/js_secrets.txt
+3. Test CNAME records for subdomain takeover vulnerabilities
+4. Manually verify interesting API endpoints from JavaScript analysis
+5. Review open ports for unnecessary services
+6. Test discovered admin/debug/internal endpoints
+7. Analyze URLs for potential injection points
+8. Check for outdated software versions in httpx output
+
+═══════════════════════════════════════════════════════════════════════════
+  DETAILED OUTPUT LOCATIONS
+═══════════════════════════════════════════════════════════════════════════
+Master Subdomains:    master_subdomains.txt
+Live URLs:            phase6_web/live_urls.txt
+Open Ports:           phase5_ports/naabu_scan.txt
+JS Endpoints:         phase7_content/js_endpoints.txt
+JS Secrets:           phase7_content/js_secrets.txt
+Critical Vulns:       phase8_vulns/nuclei_critical.json
+High Vulns:           phase8_vulns/nuclei_high.json
+Full Summary:         report/summary.txt
+Statistics (JSON):    report/stats.json
+
+╔══════════════════════════════════════════════════════════════════════════╗
+║                         END OF CONSOLIDATED REPORT                        ║
+╚══════════════════════════════════════════════════════════════════════════╝

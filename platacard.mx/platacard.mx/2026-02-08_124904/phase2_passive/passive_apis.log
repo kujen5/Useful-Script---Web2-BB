@@ -1,0 +1,7 @@
+[passive] Querying 4 passive sources for platacard.mx...
+[passive] AlienVault: 0 subdomains
+[passive] URLScan: 13 subdomains
+[passive] HackerTarget: 37 subdomains
+[passive] RapidDNS: 0 subdomains
+[passive] Total unique subdomains from all sources: 38
+[passive] Results written to /home/kujen/Bug-Bounty-Script---Web2/platacard.mx/platacard.mx/2026-02-08_124904/phase2_passive/passive_apis.txt

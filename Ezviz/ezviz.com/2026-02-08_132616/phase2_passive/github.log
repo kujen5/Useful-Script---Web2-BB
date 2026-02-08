@@ -1,0 +1,8 @@
+[github] [1/6] Searching: "ezviz.com"
+[github] [2/6] Searching: "*.ezviz.com"
+[github] [3/6] Searching: "api.ezviz.com"
+[github] [4/6] Searching: "dev.ezviz.com"
+[github] [5/6] Searching: "staging.ezviz.com"
+[github] [6/6] Searching: "internal.ezviz.com"
+[github] Found 9 unique subdomains
+[github] Results written to /home/kujen/Bug-Bounty-Script---Web2/Ezviz/ezviz.com/2026-02-08_132616/phase2_passive/github.txt

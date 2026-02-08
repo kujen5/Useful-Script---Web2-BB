@@ -1,0 +1,9 @@
+api.ezviz.com
+global.open.ezviz.com
+iindiaopen.ezviz.com
+isgpopen.ezviz.com
+m-support.ezviz.com
+open.ezviz.com
+openapisandbox.ezviz.com
+service.ezviz.com
+www.ezviz.com

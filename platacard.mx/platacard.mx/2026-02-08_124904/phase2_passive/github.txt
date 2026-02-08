@@ -1,0 +1,14 @@
+3ds.platacard.mx
+acquisition.platacard.mx
+banco.platacard.mx
+bancong.platacard.mx
+beta.platacard.mx
+bosso.platacard.mx
+career.platacard.mx
+difiere-banco.platacard.mx
+difiere.platacard.mx
+pay.platacard.mx
+prime.platacard.mx
+tracking.notify-dev.platacard.mx
+tracking.notify-stable.platacard.mx
+www-beta.platacard.mx

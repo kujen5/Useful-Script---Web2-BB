@@ -1,0 +1,204 @@
+╔══════════════════════════════════════════════════════════════════════════╗
+║                    CONSOLIDATED RECONNAISSANCE REPORT                     ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+═══════════════════════════════════════════════════════════════════════════
+  BASIC INFORMATION
+═══════════════════════════════════════════════════════════════════════════
+Program:          Ezviz
+Target Domain:    ezviz.com
+Scan Date:        2026-02-08 13:39:34
+Output Directory: /home/kujen/Bug-Bounty-Script---Web2/Ezviz/ezviz.com/2026-02-08_132616
+
+═══════════════════════════════════════════════════════════════════════════
+  DISCOVERY SUMMARY
+═══════════════════════════════════════════════════════════════════════════
+Total Subdomains:     37
+Live Web Assets:      0
+Open Ports:           468
+URLs Discovered:      0
+JS Files Analyzed:    0
+Vulnerabilities:      0
+
+═══════════════════════════════════════════════════════════════════════════
+  ASN INFORMATION
+═══════════════════════════════════════════════════════════════════════════
+ASN Number:       N/A
+ASN Name:         N/A
+ASN Description:  N/A
+IP Ranges:        0 CIDR blocks
+
+═══════════════════════════════════════════════════════════════════════════
+  ALL DISCOVERED SUBDOMAINS (37)
+═══════════════════════════════════════════════════════════════════════════
+ai-api.ezviz.com
+ai.ezviz.com
+aliyunsgpovsmall.ezviz.com
+b.ezviz.com
+bcard-admin.ezviz.com
+bcard-lite.ezviz.com
+bcard.ezviz.com
+co.ezviz.com
+eumallglobalgateway.ezviz.com
+ezviz.com
+icnopen.ezviz.com
+ieuopen.ezviz.com
+iindiaopen.ezviz.com
+isaopen.ezviz.com
+isgpopen.ezviz.com
+isrm.ezviz.com
+iusopen.ezviz.com
+job.ezviz.com
+languageupdate.ezviz.com
+live.ezviz.com
+m-support.ezviz.com
+m.ezviz.com
+mfs.ezviz.com
+news.ezviz.com
+open.ezviz.com
+opensgp.ezviz.com
+pay.ezviz.com
+pbservice.ezviz.com
+pnr.ezviz.com
+sapnr.ezviz.com
+service.ezviz.com
+support.ezviz.com
+usmallglobalgateway.ezviz.com
+website1.ezviz.com
+www.ezviz.cOm
+www.ezviz.com
+www.page.ezviz.com
+
+═══════════════════════════════════════════════════════════════════════════
+  LIVE WEB URLS (0)
+═══════════════════════════════════════════════════════════════════════════
+No live URLs found
+
+═══════════════════════════════════════════════════════════════════════════
+  STATUS CODE BREAKDOWN
+═══════════════════════════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════════════════════════
+  OPEN PORTS (Top 20)
+═══════════════════════════════════════════════════════════════════════════
+job.ezviz.com:5100
+job.ezviz.com:5200
+job.ezviz.com:5718
+job.ezviz.com:6002
+job.ezviz.com:7800
+job.ezviz.com:10002
+job.ezviz.com:3013
+job.ezviz.com:6001
+job.ezviz.com:8031
+job.ezviz.com:1999
+job.ezviz.com:1213
+job.ezviz.com:808
+job.ezviz.com:5678
+job.ezviz.com:12345
+job.ezviz.com:5222
+job.ezviz.com:8383
+job.ezviz.com:9999
+job.ezviz.com:5080
+job.ezviz.com:5850
+job.ezviz.com:1088
+... and 448 more open ports
+(See phase5_ports/naabu_scan.txt for full list)
+
+═══════════════════════════════════════════════════════════════════════════
+  JAVASCRIPT ANALYSIS - API ENDPOINTS
+═══════════════════════════════════════════════════════════════════════════
+No endpoints found in JavaScript files
+
+═══════════════════════════════════════════════════════════════════════════
+  JAVASCRIPT ANALYSIS - URLS
+═══════════════════════════════════════════════════════════════════════════
+No URLs found in JavaScript files
+
+═══════════════════════════════════════════════════════════════════════════
+  JAVASCRIPT ANALYSIS - SECRETS & API KEYS (*** HIGH PRIORITY ***)
+═══════════════════════════════════════════════════════════════════════════
+✓ No secrets found in JavaScript files
+
+═══════════════════════════════════════════════════════════════════════════
+  JAVASCRIPT ANALYSIS - EMAIL ADDRESSES
+═══════════════════════════════════════════════════════════════════════════
+No email addresses found
+
+═══════════════════════════════════════════════════════════════════════════
+  JAVASCRIPT ANALYSIS - INTERESTING FILES
+═══════════════════════════════════════════════════════════════════════════
+No interesting file paths found
+
+═══════════════════════════════════════════════════════════════════════════
+  CNAME RECORDS (Potential Subdomain Takeover)
+═══════════════════════════════════════════════════════════════════════════
+Total CNAMEs: 23
+
+support.ezviz.com [[35mCNAME[0m] [[32mec2-ext-alb-support-331249905.eu-west-1.elb.amazonaws.com[0m] 
+ieuopen.ezviz.com [[35mCNAME[0m] [[32mk8s-ezviz-ezopenin-f5ab891115-d0ed3862aa6a4394.elb.eu-west-1.amazonaws.com[0m] 
+iindiaopen.ezviz.com [[35mCNAME[0m] [[32ma4efe4048c09a4d3a96aa5ca7bae9d58-1225184868.ap-south-1.elb.amazonaws.com[0m] 
+usmallglobalgateway.ezviz.com [[35mCNAME[0m] [[32mk8s-ezviz-ezpublic-5072def1c1-ae5416cdf9d4b9d7.elb.us-east-1.amazonaws.com[0m] 
+m-support.ezviz.com [[35mCNAME[0m] [[32mec2-ext-alb-support-331249905.eu-west-1.elb.amazonaws.com[0m] 
+eumallglobalgateway.ezviz.com [[35mCNAME[0m] [[32mk8s-ezviz-ezpublic-99a7f9403a-bb43029136756a6b.elb.eu-west-1.amazonaws.com[0m] 
+iusopen.ezviz.com [[35mCNAME[0m] [[32mae17f699854ef48efbfcff9070359596-1014639487.us-east-1.elb.amazonaws.com[0m] 
+service.ezviz.com [[35mCNAME[0m] [[32mwaf.ys7.com[0m] 
+service.ezviz.com [[35mCNAME[0m] [[32mwaf.xy.ys7.com[0m] 
+service.ezviz.com [[35mCNAME[0m] [[32mwaf.sq.ys7.com[0m] 
+job.ezviz.com [[35mCNAME[0m] [[32mjob.ezviz.com.wswebcdn.com[0m] 
+pbservice.ezviz.com [[35mCNAME[0m] [[32mwaf.ys7.com[0m] 
+pbservice.ezviz.com [[35mCNAME[0m] [[32mwaf.sq.ys7.com[0m] 
+www.ezviz.cOm [[35mCNAME[0m] [[32maliyunsgpovsmall.ezviz.com[0m] 
+isrm.ezviz.com [[35mCNAME[0m] [[32misrm.ezviz.com.wswebcdn.com[0m] 
+open.ezviz.com [[35mCNAME[0m] [[32mopensgp.ezviz.com[0m] 
+news.ezviz.com [[35mCNAME[0m] [[32mwaf.ys7.com[0m] 
+news.ezviz.com [[35mCNAME[0m] [[32mwaf.xy.ys7.com[0m] 
+news.ezviz.com [[35mCNAME[0m] [[32mwaf.sq.ys7.com[0m] 
+icnopen.ezviz.com [[35mCNAME[0m] [[32mopen.xy3.ezviz.com[0m] 
+m.ezviz.com [[35mCNAME[0m] [[32maliyunsgpovsmall.ezviz.com[0m] 
+www.page.ezviz.com [[35mCNAME[0m] [[32mcustom-proxy.leadpages.net[0m] 
+languageupdate.ezviz.com [[35mCNAME[0m] [[32mlanguageupdate.ezviz.com.w.kunlungem.com[0m] 
+
+═══════════════════════════════════════════════════════════════════════════
+  CRITICAL VULNERABILITIES (*** IMMEDIATE ACTION REQUIRED ***)
+═══════════════════════════════════════════════════════════════════════════
+✓ No critical vulnerabilities found
+
+═══════════════════════════════════════════════════════════════════════════
+  HIGH SEVERITY VULNERABILITIES
+═══════════════════════════════════════════════════════════════════════════
+✓ No high severity vulnerabilities found
+
+═══════════════════════════════════════════════════════════════════════════
+  VULNERABILITY SUMMARY (All Severities)
+═══════════════════════════════════════════════════════════════════════════
+
+See phase8_vulns/ for detailed vulnerability reports
+
+═══════════════════════════════════════════════════════════════════════════
+  RECOMMENDED NEXT STEPS
+═══════════════════════════════════════════════════════════════════════════
+1. Review and validate all CRITICAL and HIGH severity vulnerabilities
+2. Check for exposed secrets in phase7_content/js_secrets.txt
+3. Test CNAME records for subdomain takeover vulnerabilities
+4. Manually verify interesting API endpoints from JavaScript analysis
+5. Review open ports for unnecessary services
+6. Test discovered admin/debug/internal endpoints
+7. Analyze URLs for potential injection points
+8. Check for outdated software versions in httpx output
+
+═══════════════════════════════════════════════════════════════════════════
+  DETAILED OUTPUT LOCATIONS
+═══════════════════════════════════════════════════════════════════════════
+Master Subdomains:    master_subdomains.txt
+Live URLs:            phase6_web/live_urls.txt
+Open Ports:           phase5_ports/naabu_scan.txt
+JS Endpoints:         phase7_content/js_endpoints.txt
+JS Secrets:           phase7_content/js_secrets.txt
+Critical Vulns:       phase8_vulns/nuclei_critical.json
+High Vulns:           phase8_vulns/nuclei_high.json
+Full Summary:         report/summary.txt
+Statistics (JSON):    report/stats.json
+
+╔══════════════════════════════════════════════════════════════════════════╗
+║                         END OF CONSOLIDATED REPORT                        ║
+╚══════════════════════════════════════════════════════════════════════════╝

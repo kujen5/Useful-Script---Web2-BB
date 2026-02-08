@@ -1,0 +1,10 @@
+autodiscover.ezviz.com
+bcard-admin.ezviz.com
+bcard-lite.ezviz.com
+bcard.ezviz.com
+ezviz.com
+isrm.ezviz.com
+job.ezviz.com
+languageupdate.ezviz.com
+www.ezviz.com
+www.page.ezviz.com

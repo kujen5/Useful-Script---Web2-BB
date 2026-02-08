@@ -1,0 +1,11 @@
+pay.platacard.mx
+pay-beta.platacard.mx
+beta-3ds.platacard.mx
+difiere-beta.platacard.mx
+www-sandbox.platacard.mx
+www.platacard.mx
+www-bancong.platacard.mx
+certs-beta.platacard.mx
+www-beta.platacard.mx
+www-banco.platacard.mx
+beta.platacard.mx

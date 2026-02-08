@@ -1,0 +1,204 @@
+╔══════════════════════════════════════════════════════════════════════════╗
+║                    CONSOLIDATED RECONNAISSANCE REPORT                     ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+═══════════════════════════════════════════════════════════════════════════
+  BASIC INFORMATION
+═══════════════════════════════════════════════════════════════════════════
+Program:          platacard.mx
+Target Domain:    platacard.mx
+Scan Date:        2026-02-08 13:01:01
+Output Directory: /home/kujen/Bug-Bounty-Script---Web2/platacard.mx/platacard.mx/2026-02-08_124904
+
+═══════════════════════════════════════════════════════════════════════════
+  DISCOVERY SUMMARY
+═══════════════════════════════════════════════════════════════════════════
+Total Subdomains:     45
+Live Web Assets:      0
+Open Ports:           120
+URLs Discovered:      0
+JS Files Analyzed:    0
+Vulnerabilities:      0
+
+═══════════════════════════════════════════════════════════════════════════
+  ASN INFORMATION
+═══════════════════════════════════════════════════════════════════════════
+ASN Number:       N/A
+ASN Name:         N/A
+ASN Description:  N/A
+IP Ranges:        0 CIDR blocks
+
+═══════════════════════════════════════════════════════════════════════════
+  ALL DISCOVERED SUBDOMAINS (45)
+═══════════════════════════════════════════════════════════════════════════
+3ds-acs.platacard.mx
+3ds.platacard.mx
+acquisition.platacard.mx
+auth-beta-cf.platacard.mx
+auth-beta.platacard.mx
+auth-prime.platacard.mx
+banco.platacard.mx
+bancong.platacard.mx
+beta-3ds.platacard.mx
+beta.platacard.mx
+bosso.platacard.mx
+callback-sms-acs.platacard.mx
+career.platacard.mx
+cdnmobile-beta.platacard.mx
+certs-beta.platacard.mx
+certs.platacard.mx
+design.platacard.mx
+difiere-banco.platacard.mx
+difiere-bancong.platacard.mx
+difiere-beta.platacard.mx
+difiere-sandbox.platacard.mx
+difiere.platacard.mx
+event.platacard.mx
+jira.platacard.mx
+mock-beta.platacard.mx
+pay-beta.platacard.mx
+pay.platacard.mx
+platacard.mx
+plataforma.platacard.mx
+prime.platacard.mx
+sandbox.platacard.mx
+sso.platacard.mx
+tracking.ib26502.bancong.platacard.mx
+tracking.ib77680.banco.platacard.mx
+tracking.notify-dev.platacard.mx
+tracking.notify-stable.platacard.mx
+tracking.platacard.mx
+uat-3ds-acs.platacard.mx
+uat-callback-sms-acs.platacard.mx
+www-banco.platacard.mx
+www-bancong.platacard.mx
+www-beta.platacard.mx
+www-pyme-beta.platacard.mx
+www-sandbox.platacard.mx
+www.platacard.mx
+
+═══════════════════════════════════════════════════════════════════════════
+  LIVE WEB URLS (0)
+═══════════════════════════════════════════════════════════════════════════
+No live URLs found
+
+═══════════════════════════════════════════════════════════════════════════
+  STATUS CODE BREAKDOWN
+═══════════════════════════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════════════════════════
+  OPEN PORTS (Top 20)
+═══════════════════════════════════════════════════════════════════════════
+jira.platacard.mx:8080
+jira.platacard.mx:443
+jira.platacard.mx:8443
+jira.platacard.mx:80
+difiere-sandbox.platacard.mx:8080
+difiere-sandbox.platacard.mx:443
+difiere-sandbox.platacard.mx:8443
+difiere-sandbox.platacard.mx:80
+certs.platacard.mx:8080
+certs.platacard.mx:443
+certs.platacard.mx:8443
+certs.platacard.mx:80
+difiere-beta.platacard.mx:8080
+difiere-beta.platacard.mx:443
+difiere-beta.platacard.mx:8443
+difiere-beta.platacard.mx:80
+career.platacard.mx:8080
+career.platacard.mx:443
+career.platacard.mx:8443
+career.platacard.mx:80
+... and 100 more open ports
+(See phase5_ports/naabu_scan.txt for full list)
+
+═══════════════════════════════════════════════════════════════════════════
+  JAVASCRIPT ANALYSIS - API ENDPOINTS
+═══════════════════════════════════════════════════════════════════════════
+No endpoints found in JavaScript files
+
+═══════════════════════════════════════════════════════════════════════════
+  JAVASCRIPT ANALYSIS - URLS
+═══════════════════════════════════════════════════════════════════════════
+No URLs found in JavaScript files
+
+═══════════════════════════════════════════════════════════════════════════
+  JAVASCRIPT ANALYSIS - SECRETS & API KEYS (*** HIGH PRIORITY ***)
+═══════════════════════════════════════════════════════════════════════════
+✓ No secrets found in JavaScript files
+
+═══════════════════════════════════════════════════════════════════════════
+  JAVASCRIPT ANALYSIS - EMAIL ADDRESSES
+═══════════════════════════════════════════════════════════════════════════
+No email addresses found
+
+═══════════════════════════════════════════════════════════════════════════
+  JAVASCRIPT ANALYSIS - INTERESTING FILES
+═══════════════════════════════════════════════════════════════════════════
+No interesting file paths found
+
+═══════════════════════════════════════════════════════════════════════════
+  CNAME RECORDS (Potential Subdomain Takeover)
+═══════════════════════════════════════════════════════════════════════════
+Total CNAMEs: 15
+
+tracking.notify-dev.platacard.mx [[35mCNAME[0m] [[32memailtracking.email-messaging.com[0m] 
+tracking.notify-dev.platacard.mx [[35mCNAME[0m] [[32memail-tracking.infobip.com[0m] 
+tracking.platacard.mx [[35mCNAME[0m] [[32memailtracking.email-messaging.com[0m] 
+tracking.platacard.mx [[35mCNAME[0m] [[32memail-tracking.infobip.com[0m] 
+auth-beta-cf.platacard.mx [[35mCNAME[0m] [[32md1537zib9kahgb.cloudfront.net[0m] 
+event.platacard.mx [[35mCNAME[0m] [[32msites.framer.app[0m] 
+design.platacard.mx [[35mCNAME[0m] [[32msites.framer.app[0m] 
+tracking.ib77680.banco.platacard.mx [[35mCNAME[0m] [[32memailtracking.email-messaging.com[0m] 
+tracking.ib77680.banco.platacard.mx [[35mCNAME[0m] [[32memail-tracking.infobip.com[0m] 
+auth-prime.platacard.mx [[35mCNAME[0m] [[32mauth.prime.diftech.net[0m] 
+tracking.notify-stable.platacard.mx [[35mCNAME[0m] [[32memailtracking.email-messaging.com[0m] 
+tracking.notify-stable.platacard.mx [[35mCNAME[0m] [[32memail-tracking.infobip.com[0m] 
+auth-beta.platacard.mx [[35mCNAME[0m] [[32mauth.beta.diftech.net[0m] 
+tracking.ib26502.bancong.platacard.mx [[35mCNAME[0m] [[32memailtracking.email-messaging.com[0m] 
+tracking.ib26502.bancong.platacard.mx [[35mCNAME[0m] [[32memail-tracking.infobip.com[0m] 
+
+═══════════════════════════════════════════════════════════════════════════
+  CRITICAL VULNERABILITIES (*** IMMEDIATE ACTION REQUIRED ***)
+═══════════════════════════════════════════════════════════════════════════
+✓ No critical vulnerabilities found
+
+═══════════════════════════════════════════════════════════════════════════
+  HIGH SEVERITY VULNERABILITIES
+═══════════════════════════════════════════════════════════════════════════
+✓ No high severity vulnerabilities found
+
+═══════════════════════════════════════════════════════════════════════════
+  VULNERABILITY SUMMARY (All Severities)
+═══════════════════════════════════════════════════════════════════════════
+
+See phase8_vulns/ for detailed vulnerability reports
+
+═══════════════════════════════════════════════════════════════════════════
+  RECOMMENDED NEXT STEPS
+═══════════════════════════════════════════════════════════════════════════
+1. Review and validate all CRITICAL and HIGH severity vulnerabilities
+2. Check for exposed secrets in phase7_content/js_secrets.txt
+3. Test CNAME records for subdomain takeover vulnerabilities
+4. Manually verify interesting API endpoints from JavaScript analysis
+5. Review open ports for unnecessary services
+6. Test discovered admin/debug/internal endpoints
+7. Analyze URLs for potential injection points
+8. Check for outdated software versions in httpx output
+
+═══════════════════════════════════════════════════════════════════════════
+  DETAILED OUTPUT LOCATIONS
+═══════════════════════════════════════════════════════════════════════════
+Master Subdomains:    master_subdomains.txt
+Live URLs:            phase6_web/live_urls.txt
+Open Ports:           phase5_ports/naabu_scan.txt
+JS Endpoints:         phase7_content/js_endpoints.txt
+JS Secrets:           phase7_content/js_secrets.txt
+Critical Vulns:       phase8_vulns/nuclei_critical.json
+High Vulns:           phase8_vulns/nuclei_high.json
+Full Summary:         report/summary.txt
+Statistics (JSON):    report/stats.json
+
+╔══════════════════════════════════════════════════════════════════════════╗
+║                         END OF CONSOLIDATED REPORT                        ║
+╚══════════════════════════════════════════════════════════════════════════╝

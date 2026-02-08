@@ -1,0 +1,16 @@
+{
+  "program": "platacard.mx",
+  "domain": "platacard.mx",
+  "output_dir": "/home/kujen/Bug-Bounty-Script---Web2/platacard.mx/platacard.mx/2026-02-08_124904",
+  "counts": {
+    "passive_merged": 54,
+    "resolved": 44,
+    "bruteforce": 14,
+    "permutations": 11,
+    "master": 45,
+    "ports": 120,
+    "web_assets": 0,
+    "urls": 0,
+    "nuclei": 0
+  }
+}

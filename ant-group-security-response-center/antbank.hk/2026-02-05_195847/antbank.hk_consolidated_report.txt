@@ -1,0 +1,248 @@
+╔══════════════════════════════════════════════════════════════════════════╗
+║                    CONSOLIDATED RECONNAISSANCE REPORT                     ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+═══════════════════════════════════════════════════════════════════════════
+  BASIC INFORMATION
+═══════════════════════════════════════════════════════════════════════════
+Program:          ant-group-security-response-center
+Target Domain:    antbank.hk
+Scan Date:        2026-02-05 195847
+Output Directory: /home/kujen/Bug-Bounty-Script---Web2/ant-group-security-response-center/antbank.hk/2026-02-05_195847
+
+═══════════════════════════════════════════════════════════════════════════
+  DISCOVERY SUMMARY
+═══════════════════════════════════════════════════════════════════════════
+Total Subdomains:     35
+Live Web Assets:      35
+Open Ports:           30
+URLs Discovered:      353
+JS Files Analyzed:    58
+Vulnerabilities:      0
+
+═══════════════════════════════════════════════════════════════════════════
+  ASN INFORMATION
+═══════════════════════════════════════════════════════════════════════════
+ASN Number:       N/A
+ASN Name:         N/A
+ASN Description:  N/A
+IP Ranges:        0 CIDR blocks
+
+═══════════════════════════════════════════════════════════════════════════
+  ALL DISCOVERED SUBDOMAINS (35)
+═══════════════════════════════════════════════════════════════════════════
+apus.antbank.hk
+bastion.antbank.hk
+bkautocheck.antbank.hk
+bkmngcorehk.antbank.hk
+bt-connection.antbank.hk
+bumng.antbank.hk
+business.antbank.hk
+developer.antbank.hk
+dns-private.antbank.hk
+dns-public.antbank.hk
+grafana.antbank.hk
+h5.antbank.hk
+hbase.antbank.hk
+icsbenchmng.antbank.hk
+icsbenchmng.pre.antbank.hk
+icsmada.antbank.hk
+mail.antbank.hk
+mail.executive.antbank.hk
+mail.service.antbank.hk
+mgw.antcloud.antbank.hk
+mng-es-biz.antbank.hk
+nova.antbank.hk
+ob.antbank.hk
+obmonitor.antbank.hk
+odc.antbank.hk
+pop3.antbank.hk
+pop3.service.antbank.hk
+prism.antbank.hk
+raccoon.antbank.hk
+render.antbank.hk
+sftp.antbank.hk
+skywalking.antbank.hk
+superlink.antbank.hk
+telemetry.antbank.hk
+www.antbank.hk
+
+═══════════════════════════════════════════════════════════════════════════
+  LIVE WEB URLS (35)
+═══════════════════════════════════════════════════════════════════════════
+http://dns-public.antbank.hk:80
+http://mail.service.antbank.hk:80
+http://icsmada.antbank.hk:80
+http://mail.executive.antbank.hk:80
+http://mgw.antcloud.antbank.hk:80
+http://render.antbank.hk:1935
+http://business.antbank.hk:80
+https://icsmada.antbank.hk
+https://icsmada.antbank.hk:443
+https://dns-public.antbank.hk
+https://dns-public.antbank.hk:443
+https://mgw.antcloud.antbank.hk
+https://mgw.antcloud.antbank.hk:443
+https://raccoon.antbank.hk
+http://developer.antbank.hk:80
+https://raccoon.antbank.hk:443
+http://raccoon.antbank.hk:80
+https://mail.service.antbank.hk:443
+https://mail.executive.antbank.hk
+https://mail.antbank.hk
+https://mail.service.antbank.hk
+https://mail.executive.antbank.hk:443
+http://h5.antbank.hk:80
+https://business.antbank.hk
+https://business.antbank.hk:443
+https://developer.antbank.hk:443
+https://developer.antbank.hk
+http://www.antbank.hk:1935
+http://www.antbank.hk:80
+https://h5.antbank.hk:443
+https://h5.antbank.hk
+https://www.antbank.hk:443
+https://www.antbank.hk
+https://render.antbank.hk
+http://render.antbank.hk:443
+
+═══════════════════════════════════════════════════════════════════════════
+  STATUS CODE BREAKDOWN
+═══════════════════════════════════════════════════════════════════════════
+  Status 200 : 17 URLs
+  Status 404 : 12 URLs
+
+═══════════════════════════════════════════════════════════════════════════
+  OPEN PORTS (Top 20)
+═══════════════════════════════════════════════════════════════════════════
+www.antbank.hk:443
+www.antbank.hk:80
+www.antbank.hk:843
+www.antbank.hk:1935
+business.antbank.hk:80
+business.antbank.hk:443
+raccoon.antbank.hk:80
+raccoon.antbank.hk:443
+developer.antbank.hk:80
+developer.antbank.hk:443
+mail.executive.antbank.hk:80
+mail.executive.antbank.hk:443
+h5.antbank.hk:80
+h5.antbank.hk:443
+dns-public.antbank.hk:80
+dns-public.antbank.hk:443
+icsmada.antbank.hk:80
+icsmada.antbank.hk:443
+mgw.antcloud.antbank.hk:80
+mgw.antcloud.antbank.hk:443
+... and 10 more open ports
+(See phase5_ports/naabu_scan.txt for full list)
+
+═══════════════════════════════════════════════════════════════════════════
+  JAVASCRIPT ANALYSIS - API ENDPOINTS
+═══════════════════════════════════════════════════════════════════════════
+No endpoints found in JavaScript files
+(Note: JS analysis may not have been run on this scan)
+
+═══════════════════════════════════════════════════════════════════════════
+  JAVASCRIPT ANALYSIS - URLS
+═══════════════════════════════════════════════════════════════════════════
+No URLs found in JavaScript files
+(Note: JS analysis may not have been run on this scan)
+
+═══════════════════════════════════════════════════════════════════════════
+  JAVASCRIPT ANALYSIS - SECRETS & API KEYS (*** HIGH PRIORITY ***)
+═══════════════════════════════════════════════════════════════════════════
+✓ No secrets found in JavaScript files
+(Note: JS analysis may not have been run on this scan)
+
+═══════════════════════════════════════════════════════════════════════════
+  JAVASCRIPT ANALYSIS - EMAIL ADDRESSES
+═══════════════════════════════════════════════════════════════════════════
+No email addresses found
+(Note: JS analysis may not have been run on this scan)
+
+═══════════════════════════════════════════════════════════════════════════
+  JAVASCRIPT ANALYSIS - INTERESTING FILES
+═══════════════════════════════════════════════════════════════════════════
+No interesting file paths found
+(Note: JS analysis may not have been run on this scan)
+
+═══════════════════════════════════════════════════════════════════════════
+  CNAME RECORDS (Potential Subdomain Takeover)
+═══════════════════════════════════════════════════════════════════════════
+Total CNAMEs: 28
+
+bkautocheck.antbank.hk [[35mCNAME[0m] [[32mdns-private.antbank.hk[0m] 
+bumng.antbank.hk [[35mCNAME[0m] [[32mbumng.alipaydns.com[0m] 
+bumng.antbank.hk [[35mCNAME[0m] [[32macl-rr2.office.spanner.alipaydns.com[0m] 
+nova.antbank.hk [[35mCNAME[0m] [[32mdns-private.antbank.hk[0m] 
+prism.antbank.hk [[35mCNAME[0m] [[32mdns-private.antbank.hk[0m] 
+telemetry.antbank.hk [[35mCNAME[0m] [[32mdns-private.antbank.hk[0m] 
+developer.antbank.hk [[35mCNAME[0m] [[32mdns-public.antbank.hk[0m] 
+pop3.antbank.hk [[35mCNAME[0m] [[32mpop.sg.aliyun.com[0m] 
+pop3.antbank.hk [[35mCNAME[0m] [[32mpop.sg.aliyun.com.gds.alibabadns.com[0m] 
+h5.antbank.hk [[35mCNAME[0m] [[32mh5.antbank.hk.w.cdngslb.com[0m] 
+hbase.antbank.hk [[35mCNAME[0m] [[32mdns-private.antbank.hk[0m] 
+odc.antbank.hk [[35mCNAME[0m] [[32mdns-private.antbank.hk[0m] 
+mgw.antcloud.antbank.hk [[35mCNAME[0m] [[32mdns-public.antbank.hk[0m] 
+bkmngcorehk.antbank.hk [[35mCNAME[0m] [[32mdns-private.antbank.hk[0m] 
+www.antbank.hk [[35mCNAME[0m] [[32mwww.antbank.hk.w.kunlunsl.com[0m] 
+raccoon.antbank.hk [[35mCNAME[0m] [[32mdns-public.antbank.hk[0m] 
+mng-es-biz.antbank.hk [[35mCNAME[0m] [[32mdns-private.antbank.hk[0m] 
+icsbenchmng.antbank.hk [[35mCNAME[0m] [[32mdns-private.antbank.hk[0m] 
+business.antbank.hk [[35mCNAME[0m] [[32mdns-public.antbank.hk[0m] 
+mail.antbank.hk [[35mCNAME[0m] [[32mmail.sg.aliyun.com[0m] 
+mail.antbank.hk [[35mCNAME[0m] [[32malimail-access-agent-ay29sg.aliyuncs.com[0m] 
+mail.antbank.hk [[35mCNAME[0m] [[32malimail-access-agent-ay29sg.aliyuncs.com.gds.alibabadns.com[0m] 
+icsmada.antbank.hk [[35mCNAME[0m] [[32mdns-public.antbank.hk[0m] 
+skywalking.antbank.hk [[35mCNAME[0m] [[32mdns-private.antbank.hk[0m] 
+icsbenchmng.pre.antbank.hk [[35mCNAME[0m] [[32mdns-private.antbank.hk[0m] 
+mail.executive.antbank.hk [[35mCNAME[0m] [[32mmail.sg.aliyun.com[0m] 
+mail.executive.antbank.hk [[35mCNAME[0m] [[32malimail-access-agent-ay29sg.aliyuncs.com[0m] 
+mail.executive.antbank.hk [[35mCNAME[0m] [[32malimail-access-agent-ay29sg.aliyuncs.com.gds.alibabadns.com[0m] 
+
+═══════════════════════════════════════════════════════════════════════════
+  CRITICAL VULNERABILITIES (*** IMMEDIATE ACTION REQUIRED ***)
+═══════════════════════════════════════════════════════════════════════════
+✓ No critical vulnerabilities found
+
+═══════════════════════════════════════════════════════════════════════════
+  HIGH SEVERITY VULNERABILITIES
+═══════════════════════════════════════════════════════════════════════════
+✓ No high severity vulnerabilities found
+
+═══════════════════════════════════════════════════════════════════════════
+  VULNERABILITY SUMMARY (All Severities)
+═══════════════════════════════════════════════════════════════════════════
+
+See phase8_vulns/ for detailed vulnerability reports
+
+═══════════════════════════════════════════════════════════════════════════
+  RECOMMENDED NEXT STEPS
+═══════════════════════════════════════════════════════════════════════════
+1. Review and validate all CRITICAL and HIGH severity vulnerabilities
+2. Check for exposed secrets in phase7_content/js_secrets.txt
+3. Test CNAME records for subdomain takeover vulnerabilities
+4. Manually verify interesting API endpoints from JavaScript analysis
+5. Review open ports for unnecessary services
+6. Test discovered admin/debug/internal endpoints
+7. Analyze URLs for potential injection points
+8. Check for outdated software versions in httpx output
+
+═══════════════════════════════════════════════════════════════════════════
+  DETAILED OUTPUT LOCATIONS
+═══════════════════════════════════════════════════════════════════════════
+Master Subdomains:    master_subdomains.txt
+Live URLs:            phase6_web/live_urls.txt
+Open Ports:           phase5_ports/naabu_scan.txt
+JS Endpoints:         phase7_content/js_endpoints.txt
+JS Secrets:           phase7_content/js_secrets.txt
+Critical Vulns:       phase8_vulns/nuclei_critical.json
+High Vulns:           phase8_vulns/nuclei_high.json
+Full Summary:         report/summary.txt
+Statistics (JSON):    report/stats.json
+
+╔══════════════════════════════════════════════════════════════════════════╗
+║                         END OF CONSOLIDATED REPORT                        ║
+╚══════════════════════════════════════════════════════════════════════════╝
